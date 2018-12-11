@@ -192,6 +192,7 @@ endif
 "--------------------------------------------------------------------------
 " fzf
 "--------------------------------------------------------------------------
+" NOTE: windows: choco install fzf
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "   " Both options are optional. You don't have to install fzf in ~/.fzf
@@ -305,7 +306,11 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 "各种vim的跳转和搜索命令都可以始用，回车跳转然后关闭函数列表，
 "除此之外按 i 进入模糊匹配，按TAB切换回列表选择。
 "--------------------------------------------------------------------------
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+if has('win32')
+    Plug 'Yggdroot/LeaderF', { 'tag': 'v1.19', 'do': '.\install.bat' }
+else
+    Plug 'Yggdroot/LeaderF', { 'tag': 'v1.19', 'do': './install.sh' }
+endif
 
 let g:Lf_ShortcutF = '<Leader>ff'
 let g:Lf_ShortcutB = '<Leader>bs'
@@ -1112,7 +1117,7 @@ let g:gutentags_define_advanced_commands = 1
 "let g:gutentags_trace = 1
 
 if has('win32')
-    let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+    "let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 endif
 
 let g:gutentags_plus_nomap = 1
@@ -1219,19 +1224,27 @@ set nofoldenable    "不许折叠
 "set foldenable      " 允许折叠  
 "set foldmethod=manual   " 手动折叠  
 
-let $LANG = 'en'  "set message language  
+let $LANG='en'  "set message language  
 set langmenu=en   "set menu's language of gvim. no spaces beside '='  
-"language message zh_CN.UTF-8
 if has('win32')
+    "vim提示信息乱码的解决
+    language message zh_CN.UTF-8
+    "vim的菜单乱码解决
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
 endif
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
-set helplang=cn
+set helplang=en
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936
+"set fileencodings=ucs-bom,utf-8,cp936
+set fileencodings=utf-8,chinese,ucs-bom,cp936
+if has('win32')
+    set fileencoding=chinese
+else
+    set fileencoding=utf-8
+endif
 
 
 "--------------------------------------------------------------------------
@@ -1709,7 +1722,7 @@ if has('terminal')
     if has('unix')
         nnoremap <silent> <Leader>tm :term zsh<CR>
     else
-        nnoremap <silent> <Leader>tm :term<CR>
+        nnoremap <silent> <Leader>tm :term powershell<CR>
     endif
 
     if !has('nvim')
