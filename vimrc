@@ -47,8 +47,7 @@ endif
 "set autochdir
 " vim 自身命令行模式智能补全
 set wildmenu
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
 "--------------------------------------------------------------------------
 " 
@@ -185,8 +184,6 @@ set autoread
 "autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 "代码补全
 set completeopt=longest,preview,menu
-"允许插件
-filetype plugin on
 "共享剪贴板
 set clipboard+=unnamed
 "从不备份
@@ -1483,9 +1480,6 @@ map g/ <Plug>(incsearch-stay)
 "--------------------------------------------------------------------------
 " All of your Plugs must be added before the following line
 call plug#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
 
 "--------------------------------------------------------------------------
