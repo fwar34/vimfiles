@@ -6,6 +6,12 @@
 "=========================================
 
 "--------------------------------------------------------------------------
+"一些使用记录
+":verbose nmap <C-i> 看是哪个插件映射的<C-i>
+":reg
+"--------------------------------------------------------------------------
+
+"--------------------------------------------------------------------------
 " 一些检测函数 
 "--------------------------------------------------------------------------
 function! s:read_total_memory()
@@ -716,8 +722,8 @@ if has('win32')
     "let g:completor_clang_binary = '/usr/bin/clang'
     let g:completor_python_binary = 'python'
     "Plug 'davidhalter/jedi-vim'
-    map <tab> <Plug>CompletorCppJumpToPlaceholder
-    imap <tab> <Plug>CompletorCppJumpToPlaceholder
+    "map <tab> <Plug>CompletorCppJumpToPlaceholder
+    "imap <tab> <Plug>CompletorCppJumpToPlaceholder
 endif
 
 
