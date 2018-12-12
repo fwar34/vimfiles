@@ -713,8 +713,8 @@ if has('win32')
     inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
     "
     "C++
-    let g:completor_clang_binary = '/usr/bin/clang'
-    let g:completor_python_binary = '/usr/bin/python3'
+    "let g:completor_clang_binary = '/usr/bin/clang'
+    let g:completor_python_binary = 'python'
     "Plug 'davidhalter/jedi-vim'
     map <tab> <Plug>CompletorCppJumpToPlaceholder
     imap <tab> <Plug>CompletorCppJumpToPlaceholder
@@ -1378,7 +1378,6 @@ nnoremap <Leader>zz :w<CR>
 inoremap <Leader>zz <Esc>:w<CR>a
 nnoremap <Leader>yy mgy'a`g
 nnoremap <Leader>dd d'a
-cnoremap <Leader>rr <C-r><C-w>
 
 
 "--------------------------------------------------------------------------
@@ -1386,6 +1385,7 @@ cnoremap <Leader>rr <C-r><C-w>
 "--------------------------------------------------------------------------
 "can see :h registers
 ":di == :reg
+cnoremap <Leader>rr <C-r><C-w>
 cnoremap <Leader>rc <C-r>*
 cnoremap <Leader>ry <C-r>"
 "cnoremap <Leader>ry <C-r>0
