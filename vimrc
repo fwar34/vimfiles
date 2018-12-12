@@ -48,7 +48,7 @@ else
     set mouse=
 endif
 
-"set autochdir 
+set autochdir 
 " vim 自身命令行模式智能补全
 set wildmenu
 set nocompatible
