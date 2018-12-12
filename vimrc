@@ -371,7 +371,7 @@ let g:Lf_NormalMap = {
 "进一步映射 “<tab>7” , “<tab>8” 和 “<tab>9” 分别用于在新的 split, vsplit 
 "和新标签打开当前文件所在目录，这样从一个文件如手，很容易找到和该文件相关的其他项目文件
 "--------------------------------------------------------------------------
-Plug 'justinmk/vim-dirvish'
+"Plug 'justinmk/vim-dirvish'
 function! s:setup_dirvish()
 	if &buftype != 'nofile' && &filetype != 'dirvish'
 		return
@@ -412,7 +412,7 @@ endfunc
 "----------------------------------------------------------------------
 augroup MyPluginSetup
 	autocmd!
-	autocmd FileType dirvish call s:setup_dirvish()
+    autocmd FileType dirvish call s:setup_dirvish()
 augroup END
 
 
