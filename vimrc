@@ -1242,18 +1242,18 @@ set nofoldenable    "不许折叠
 "set foldmethod=manual   " 手动折叠  
 
 "set fileencodings=ucs-bom,utf-8,cp936
-set fileencodings=utf-8,chinese,ucs-bom,cp936
+set fileencodings=utf-8,ucs-bom,cp936
 if has('win32')
     "vim提示信息乱码的解决
-    let $LANG='en'  "set message language  
+    let $LANG='ch'  "set message language  
     set langmenu=ch   "set menu's language of gvim. no spaces beside '='  
-    language message zh_CN.UTF-8
-    set fileencoding=chinese
+    "language message zh_CN.UTF-8
+    set fileencoding=utf-8
     "vim的菜单乱码解决
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
 else
-    let $LANG='zh_CN.UTF-8'  "set message language  
+    let $LANG='en'  "set message language  
     set langmenu=en   "set menu's language of gvim. no spaces beside '='  
     set fileencoding=utf-8
 endif
@@ -1503,8 +1503,6 @@ set autowrite
 set ruler                   " 打开状态栏标尺
 set cursorline              " 突出显示当前行
 set magic                   " 设置魔术
-set guioptions-=T           " 隐藏工具栏
-set guioptions-=m           " 隐藏菜单栏
 " 设置在状态行显示的信息
 set foldcolumn=0
 set foldmethod=indent 
