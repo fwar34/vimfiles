@@ -56,7 +56,7 @@ if has('win32')
         endif
     endfunc
 
-    nnoremap <Space>tr :call Transparency()<CR>
+    nnoremap <Space>tt :call Transparency()<CR>
 endif
 
 
