@@ -42,10 +42,21 @@ if has('win32')
 
     "200~250
     if executable("vimtweak.dll") 
-        autocmd guienter * call libcallnr("vimtweak", "SetAlpha", 245) 
+        autocmd guienter * call libcallnr("vimtweak", "SetAlpha", 250) 
     endif 
+
+    nnoremap <Leader>tr :call Transparency()<CR>
 endif
 
+let trans_num = 50;
+function! Transparency()
+    call libcallnr("vimtweak", "SetAlpha", w:trans_num)
+    if g:trans_num == 50
+        g:trans_num = 247
+    elseif g:trans_num == 247
+        g:trans_num = 50
+    endif
+endfunc
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
 if has('gui_running')
@@ -1230,27 +1241,27 @@ set nofoldenable    "不许折叠
 "set foldenable      " 允许折叠  
 "set foldmethod=manual   " 手动折叠  
 
-let $LANG='en'  "set message language  
-set langmenu=en   "set menu's language of gvim. no spaces beside '='  
+"set fileencodings=ucs-bom,utf-8,cp936
+set fileencodings=utf-8,chinese,ucs-bom,cp936
 if has('win32')
     "vim提示信息乱码的解决
+    let $LANG='en'  "set message language  
+    set langmenu=ch   "set menu's language of gvim. no spaces beside '='  
     language message zh_CN.UTF-8
+    set fileencoding=chinese
     "vim的菜单乱码解决
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
+else
+    let $LANG='zh_CN.UTF-8'  "set message language  
+    set langmenu=en   "set menu's language of gvim. no spaces beside '='  
+    set fileencoding=utf-8
 endif
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set helplang=en
 set encoding=utf-8
-"set fileencodings=ucs-bom,utf-8,cp936
-set fileencodings=utf-8,chinese,ucs-bom,cp936
-if has('win32')
-    set fileencoding=chinese
-else
-    set fileencoding=utf-8
-endif
 
 
 "--------------------------------------------------------------------------
