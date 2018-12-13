@@ -45,18 +45,19 @@ if has('win32')
         autocmd guienter * call libcallnr("vimtweak", "SetAlpha", 250) 
     endif 
 
+    let g:trans_num = 50;
+    function! Transparency()
+        call libcallnr("vimtweak", "SetAlpha", w:trans_num)
+        if g:trans_num == 50
+            g:trans_num = 247
+        elseif g:trans_num == 247
+            g:trans_num = 50
+        endif
+    endfunc
+
     nnoremap <Leader>tr :call Transparency()<CR>
 endif
 
-let trans_num = 50;
-function! Transparency()
-    call libcallnr("vimtweak", "SetAlpha", w:trans_num)
-    if g:trans_num == 50
-        g:trans_num = 247
-    elseif g:trans_num == 247
-        g:trans_num = 50
-    endif
-endfunc
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
 if has('gui_running')
