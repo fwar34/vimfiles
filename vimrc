@@ -516,12 +516,18 @@ Plug 'https://github.com/altercation/vim-colors-solarized.git'
 "--------------------------------------------------------------------------
 Plug 'derekwyatt/vim-fswitch'
 nnoremap <Leader>fo :FSHere<CR>
+augroup fswitch_grp
+    autocmd!
+    au! BufEnter *.cc let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = 'reg:/src/include/,reg:|src|include/**|,ifrel:|/src/|../include|'
+    au! BufEnter *.h let b:fswitchdst = 'c,cpp,m,cc' | let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+augroup END
 
 
 "--------------------------------------------------------------------------
 " Automatically opens popup menu for completions 
 "--------------------------------------------------------------------------
 Plug 'vim-scripts/AutoComplPop'
+
 
 "--------------------------------------------------------------------------
 " 
