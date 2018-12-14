@@ -135,10 +135,26 @@ endif
 "--------------------------------------------------------------------------
 " 翻译
 "--------------------------------------------------------------------------
-Plug 'ianva/vim-youdao-translater'
-vnoremap <silent> <C-y> :<C-u>Ydv<CR>
-nnoremap <silent> <C-y> :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
+"Plug 'ianva/vim-youdao-translater'
+"vnoremap <silent> <C-y> :<C-u>Ydv<CR>
+"nnoremap <silent> <C-y> :<C-u>Ydc<CR>
+"noremap <leader>yd :<C-u>Yde<CR>
+
+
+"--------------------------------------------------------------------------
+" 翻译
+"--------------------------------------------------------------------------
+Plug 'iamcco/dict.vim'
+"--普通模式下，<Leader>d 即可翻译光标下的文本，并在命令行回显
+nmap <silent> <C-y> <Plug>DictSearch
+"--可视化模式下，<Leader>d 即可翻译选中的文本，并在命令行回显
+vmap <silent> <C-y> <Plug>DictVSearch
+"--普通模式下，<Leader>w 即可翻译光标下的文本，并且在Dict新窗口显示
+nmap <silent> <Leader>yd <Plug>DictWSearch
+"--可视化模式下，<Leader>w 即可翻译选中的文本，并且在Dict新窗口显示
+vmap <silent> <Leader>yd <Plug>DictWVSearch
+nnoremap <Leader>yi :Dict 
+nnoremap <Leader>yw :DictW 
 
 
 "--------------------------------------------------------------------------
@@ -520,6 +536,7 @@ augroup fswitch_grp
     autocmd!
     au! BufEnter *.cc let b:fswitchdst = 'hpp,h' | let b:fswitchlocs = 'reg:/src/include/,reg:|src|include/**|,ifrel:|/src/|../include|'
     au! BufEnter *.h let b:fswitchdst = 'c,cpp,m,cc' | let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+    au! BufEnter *.hpp let b:fswitchdst = 'c,cpp,m,cc' | let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
 augroup END
 
 
