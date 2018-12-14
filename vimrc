@@ -749,14 +749,14 @@ let g:SignatureMap = {
 " completor
 "--------------------------------------------------------------------------
 if has('win32')
-    Plug 'maralla/completor.vim'
+    "Plug 'maralla/completor.vim'
     "Use Tab to trigger completion (disable auto trigger)
-    let g:completor_auto_trigger = 0
-    inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+    "let g:completor_auto_trigger = 0
+    "inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
     "
     "C++
     "let g:completor_clang_binary = '/usr/bin/clang'
-    let g:completor_python_binary = 'python'
+    "let g:completor_python_binary = 'python'
     "Plug 'davidhalter/jedi-vim'
     "map <tab> <Plug>CompletorCppJumpToPlaceholder
     "imap <tab> <Plug>CompletorCppJumpToPlaceholder
