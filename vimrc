@@ -50,13 +50,16 @@ if has('win32')
         echo """"""
         call libcallnr("vimtweak", "SetAlpha", g:trans_num)
         if g:trans_num == 50
-            let g:trans_num = 247
-        elseif g:trans_num == 247
+            let g:trans_num = 250
+        elseif g:trans_num == 250
             let g:trans_num = 50
         endif
     endfunc
 
     nnoremap <Space>tt :call Transparency()<CR>
+
+    "sets path for python3
+    set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
 endif
 
 
