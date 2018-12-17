@@ -59,7 +59,9 @@ if has('win32')
     nnoremap <Space>tt :call Transparency()<CR>
 
     "sets path for python3
-    set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
+    if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
+        set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
+    endif
 endif
 
 
