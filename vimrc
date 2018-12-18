@@ -1542,7 +1542,12 @@ set foldcolumn=0
 set foldmethod=indent 
 set foldlevel=3 
 " 去掉输入错误的提示声音
-set noeb
+if has('win32')
+    set vb t_vb=
+    au GUIEnter * set t_vb= "GuiEnter这一行为关闭闪屏，因为关闭声音后，vim会用闪屏提示，多按一次esc也会闪
+else
+    set noeb
+endif
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 " 自动缩进
