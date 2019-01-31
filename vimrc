@@ -1501,7 +1501,7 @@ func! CompileRunGcc()
             silent exec "!rm %<"
         endif
         "exec "!g++ -std=c++11 % -o %<"
-        exec "AsyncRun g++ -Wall -O2 -std=c++11 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+        exec "AsyncRun g++ -Wall -O2 -std=c++11 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/$(VIM_FILENOEXT) -lpthread"
         "如果编译成功了有了可执行文件才运行"
         if filereadable(expand("%<"))
             "exec "! ./%<"
