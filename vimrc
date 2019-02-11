@@ -337,6 +337,13 @@ let g:AutoPairsShortcutToggle = '<Leader>pp'
 
 
 "--------------------------------------------------------------------------
+" vim从其它地方赋值粘贴时自动换行添加缩进解决办法 
+" https://blog.csdn.net/xiaoyilong2007101095/article/details/54836854
+"--------------------------------------------------------------------------
+set pastetoggle=<F9>
+
+
+"--------------------------------------------------------------------------
 " 快速移动
 "--------------------------------------------------------------------------
 Plug 'easymotion/vim-easymotion'
@@ -1381,9 +1388,29 @@ func InsertVimCommit()
     call append(line(".") - 1, "\" ")
     call append(line(".") - 1, "\"--------------------------------------------------------------------------")
 endfunc
-
 nnoremap <Leader>ic :call InsertVimCommit()<CR>
 
+func InsertTitle()
+    call append(line(".")-1, "/****************************************************************************************")
+    call append(line(".")-1, " * Copyright (c) 2008~2017 All Rights Resverved by")
+    call append(line(".")-1, " * G-Net Integrated Service co. Ltd.")
+    call append(line(".")-1, " ****************************************************************************************/")
+    call append(line(".")-1, "/**")
+    call append(line(".")-1, " * @file ".expand("%"))
+    call append(line(".")-1, " * @brief ")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @author liang.feng")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @data ".strftime("%c"))
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @version 1.0.0")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * Revision History") 
+    call append(line(".")-1, " * liang.feng ".strftime("%c").join([" create version 1.0.0"]))
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " ****************************************************************************************/") 
+endfunc
+nnoremap <Leader>it :call InsertTitle()<CR>
 
 "--------------------------------------------------------------------------
 " 键盘命令 
