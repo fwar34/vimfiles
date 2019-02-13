@@ -1284,9 +1284,20 @@ set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提�
 set number              " 显示行号  
 set go=             " 不要图形按钮  
 
+"linux系统下gui模式下窗口大小
+if system('uname') == "Linux\n" && has('gui_running')
+    set lines=25
+    set columns=110
+endif
+
 "字体设置 
-if has('win32') && has('gui_running')
-    set guifont=Courier_New:h12:cANSI
+"windows下空格为:而unix下要转译\
+if has('gui_running')
+    if has('win32')
+        set guifont=Courier_New:h12:cANSI
+    elseif has('unix')
+        set guifont=Courier\ 12
+    endif
 endif
 
 syntax on           " 语法高亮  
