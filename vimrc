@@ -63,6 +63,8 @@ if has('win32')
         set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
 	elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
 		set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
+	elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
+		set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
 	elseif isdirectory('C:\Python37')
 		set pythonthreedll=C:\Python37\python37.dll
     endif
