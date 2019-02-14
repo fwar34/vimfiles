@@ -1513,7 +1513,11 @@ func! CompileRunGcc()
     elseif &filetype == 'sh'
         :!./%
     elseif &filetype == 'python'
-        exec "!python3 %"
+        if has('win32')
+            exec "!python %"
+        else
+            exec "!python3 %"
+        endif
     endif
 endfunc
 
