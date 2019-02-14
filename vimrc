@@ -61,6 +61,12 @@ if has('win32')
     "sets path for python3
     if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
         set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
+	elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
+		set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
+	elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
+		set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
+	elseif isdirectory('C:\Python37')
+		set pythonthreedll=C:\Python37\python37.dll
     endif
 endif
 
@@ -332,6 +338,13 @@ Plug 'Chun-Yang/vim-action-ag'
 "--------------------------------------------------------------------------
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsShortcutToggle = '<Leader>pp'
+
+
+"--------------------------------------------------------------------------
+" vim从其它地方赋值粘贴时自动换行添加缩进解决办法 
+" https://blog.csdn.net/xiaoyilong2007101095/article/details/54836854
+"--------------------------------------------------------------------------
+set pastetoggle=<F9>
 
 
 "--------------------------------------------------------------------------
@@ -1273,9 +1286,20 @@ set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提�
 set number              " 显示行号  
 set go=             " 不要图形按钮  
 
+"linux系统下gui模式下窗口大小
+if system('uname') == "Linux\n" && has('gui_running')
+    set lines=25
+    set columns=110
+endif
+
 "字体设置 
-if has('win32') && has('gui_running')
-    set guifont=Courier_New:h12:cANSI
+"windows下空格为:而unix下要转译\
+if has('gui_running')
+    if has('win32')
+        set guifont=Courier_New:h12:cANSI
+    elseif has('unix')
+        set guifont=Courier\ 12
+    endif
 endif
 
 syntax on           " 语法高亮  
@@ -1325,7 +1349,7 @@ func SetTitle()
         call append(line("."), "\# File Name: ".expand("%")) 
         call append(line(".")+1, "\# Author: Feng") 
         "原来的时间形式比较复杂，不喜欢，改变一下
-        call append(line(".")+2, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+2, "\# Created Time: ".strftime("%Y-%m-%d %H:%M")) 
         "call append(line(".")+3, "\# Created Time: ".strftime("%Y-%m-%d",localtime()))
         call append(line(".")+3, "\# Content: ") 
         call append(line(".")+4, "\#########################################################################") 
@@ -1336,7 +1360,7 @@ func SetTitle()
         call append(line("."), "    > File Name: ".expand("%")) 
         call append(line(".")+1, "    > Author: Feng") 
         " 同样的 改变时间格式
-        call append(line(".")+2, "    > Created Time: ".strftime("%c")) 
+        call append(line(".")+2, "    > Created Time: ".strftime("%Y-%m-%d %H:%M")) 
         "call append(line(".")+3, "    > Created Time: ".strftime("%Y-%m-%d",localtime()))
         call append(line(".")+3, "    > Content: ") 
         call append(line(".")+4, " ************************************************************************/") 
@@ -1345,8 +1369,8 @@ func SetTitle()
     if &filetype == 'cpp'
         call append(line(".")+6, "#include <iostream>")
         call append(line(".")+7, "")
-        call append(line(".")+8, "using namespace std;")
-        call append(line(".")+9, "")
+        "call append(line(".")+8, "using namespace std;")
+        call append(line(".")+8, "")
     endif
     if &filetype == 'c'
         call append(line(".")+6, "#include<stdio.h>")
@@ -1368,7 +1392,7 @@ func SetPythonTitle()
     call append(line(".")+1," ")
     call append(line(".")+2, "\# File Name: ".expand("%")) 
     call append(line(".")+3, "\# Author: Feng") 
-	call append(line(".")+4, "\# Created Time: ".strftime("%c"))
+	call append(line(".")+4, "\# Created Time: ".strftime("%Y-%m-%d %H:%M"))
     "call append(line(".")+5, "\# Created Time: ".strftime("%Y-%m-%d",localtime()))    
     call append(line(".")+5, "\# Content: ") 
     autocmd BufNewFile * normal G
@@ -1379,9 +1403,29 @@ func InsertVimCommit()
     call append(line(".") - 1, "\" ")
     call append(line(".") - 1, "\"--------------------------------------------------------------------------")
 endfunc
-
 nnoremap <Leader>ic :call InsertVimCommit()<CR>
 
+func InsertTitle()
+    call append(line(".")-1, "/****************************************************************************************")
+    call append(line(".")-1, " * Copyright (c) 2008~".strftime("%Y").join([" All Rights Resverved by"]))
+    call append(line(".")-1, " * G-Net Integrated Service co. Ltd.")
+    call append(line(".")-1, " ****************************************************************************************/")
+    call append(line(".")-1, "/**")
+    call append(line(".")-1, " * @file ".expand("%"))
+    call append(line(".")-1, " * @brief ")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @author liang.feng")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @data ".strftime("%Y-%m-%d %H:%M"))
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * @version 1.0.0")
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " * Revision History") 
+    call append(line(".")-1, " * liang.feng ".strftime("%Y-%m-%d %H:%M").join([" create version 1.0.0"]))
+    call append(line(".")-1, " *")
+    call append(line(".")-1, " ****************************************************************************************/") 
+endfunc
+nnoremap <Leader>it :call InsertTitle()<CR>
 
 "--------------------------------------------------------------------------
 " 键盘命令 
@@ -1501,7 +1545,7 @@ func! CompileRunGcc()
             silent exec "!rm %<"
         endif
         "exec "!g++ -std=c++11 % -o %<"
-        exec "AsyncRun g++ -Wall -O2 -std=c++11 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+        exec "AsyncRun g++ -Wall -O2 -std=c++11 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/$(VIM_FILENOEXT) -lpthread"
         "如果编译成功了有了可执行文件才运行"
         if filereadable(expand("%<"))
             "exec "! ./%<"
