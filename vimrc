@@ -1296,7 +1296,7 @@ if has('gui_running')
     if has('win32')
         set guifont=Courier_New:h12:cANSI
     elseif has('unix')
-        set guifont=Courier\ 12
+        set guifont=Courier\ 14
     endif
 endif
 
