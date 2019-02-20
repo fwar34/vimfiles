@@ -190,6 +190,22 @@ Plug 'racer-rust/vim-racer'
 
 
 "--------------------------------------------------------------------------
+"  Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java,
+"  JavaScript, TypeScript and ProtoBuf. 
+"
+"  If you install vim-operator-user in advance, you can also map
+"  <Plug>(operator-clang-format) to your favorite key bind.)
+"
+"  https://www.cnblogs.com/xuxm2007/p/8570686.html
+"--------------------------------------------------------------------------
+Plug 'rhysd/vim-clang-format'
+Plug 'kana/vim-operator-user'
+if has('win32')
+    Plug 'Shougo/vimproc.vim'
+endif
+
+
+"--------------------------------------------------------------------------
 " 平滑滚动 
 "--------------------------------------------------------------------------
 Plug 'yuttie/comfortable-motion.vim'
