@@ -198,11 +198,11 @@ Plug 'racer-rust/vim-racer'
 "
 "  https://www.cnblogs.com/xuxm2007/p/8570686.html
 "--------------------------------------------------------------------------
-Plug 'rhysd/vim-clang-format'
-Plug 'kana/vim-operator-user'
-if has('win32')
-    Plug 'Shougo/vimproc.vim'
-endif
+"Plug 'rhysd/vim-clang-format'
+"Plug 'kana/vim-operator-user'
+"if has('win32')
+    "Plug 'Shougo/vimproc.vim'
+"endif
 
 
 "--------------------------------------------------------------------------
