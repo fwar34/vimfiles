@@ -1628,8 +1628,8 @@ endif
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 " 自动缩进
-set autoindent
-set smartindent    "智能的选择对起方式；
+"set autoindent
+"set smartindent    "智能的选择对起方式；
 " Tab键的宽度
 set tabstop=4
 " 统一缩进为4
@@ -1638,7 +1638,11 @@ set shiftwidth=4
 set cindent
 "set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set cinoptions+=g0,(1s,:0
-set cinoptions=g0,:0,(0
+"set cinoptions=g0,:0,(0,l1
+"http://vimcdoc.sourceforge.net/doc/indent.html
+set cinoptions=g0,(0,W4,l1,N-s,E-s,t0,j1,J1
+"set cinoptions={0,1s,t0,n-2,p2s,(01s,=.5s,>1s,=1s,:1s
+
 " 用空格代替制表符
 set expandtab
 " 在行和段开始处使用制表符
