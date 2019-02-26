@@ -1309,10 +1309,12 @@ if system('uname') == "Linux\n" && has('gui_running')
 endif
 
 "字体设置 
-"windows下空格为:而unix下要转译\
+"windows下空格为:而unix下要转译\,windows下字体的空格用下划线_
 if has('gui_running')
     if has('win32')
-        set guifont=Courier_New:h12:cANSI
+        "set guifont=Courier_New:h12:cANSI
+        "set guifont=Source_Code_Variable:h12:cANSI
+        set guifont=Fira_Code_Light:h12:cANSI
     elseif has('unix')
         set guifont=Courier\ 14
     endif
