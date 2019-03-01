@@ -1315,6 +1315,9 @@ if has('gui_running')
         set guifontset=
         if hostname() == "A12839"
             set guifont=Courier\ New:h12:cANSI
+            "设置中文为微软雅黑
+            "set guifontwide=Microsoft\ YaHei:h12
+            set guifontwide=幼圆:b:h11:cGB2312
         else
             "set guifont=Courier_New:h12:cANSI
             "set guifont=Source_Code_Variable:h12:cANSI
@@ -1339,10 +1342,10 @@ if has('gui_running')
             "set guifont=YaHei\ Consolas\ Hybrid:h9 
             "如果guifontwide采用中文字体，汉字将自动使用guifontwide，英文自动使用guifont 
             "set guifontwide=YaHei\ Consolas\ Hybrid:h9 
+            "设置中文为微软雅黑
+            "set guifontwide=Microsoft\ YaHei:h12
+            "set guifontwide=幼圆:b:h11:cGB2312
         endif
-        "设置中文为微软雅黑
-        "set guifontwide=Microsoft\ YaHei:h12
-        set guifontwide=幼圆:b:h11:cGB2312
     elseif has('unix')
         set guifont=Courier\ 14
     endif
