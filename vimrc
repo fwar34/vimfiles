@@ -30,6 +30,10 @@ else
     call s:read_total_memory()
 endif
 
+if $NVIM_TUI_ENABLE_TRUE_COLOR
+    echom XXXXX
+endif
+
 "--------------------------------------------------------------------------
 " 
 "--------------------------------------------------------------------------
@@ -37,7 +41,7 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" 启动全屏
+" 启动全屏 win32 && vim
 if has('win32') && !has('nvim')
     autocmd GUIEnter * simalt ~x
 
@@ -71,9 +75,6 @@ if has('win32') && !has('nvim')
     endif
 endif
 
-if has('nvim')
-    let g:python3_host_prog='C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python.exe'
-endif
 
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
@@ -140,6 +141,7 @@ nnoremap <silent> <Leader>ww :call asyncrun#quickfix_toggle(6)<CR>
 "--------------------------------------------------------------------------
 Plug 'terryma/vim-expand-region'
 
+
 "--------------------------------------------------------------------------
 " 
 "--------------------------------------------------------------------------
@@ -193,6 +195,20 @@ Plug 'rust-lang/rust.vim'
 " Racer support for Vim 
 "--------------------------------------------------------------------------
 Plug 'racer-rust/vim-racer'
+
+
+"--------------------------------------------------------------------------
+" 使用过 Sublime Text 的人应该都对 Sublime Text 中多点编辑功能爱不释手，
+" 这个功能对于代码重构非常实用，如何在 Nvim 中使用类似的功能呢？可以借助于 
+" vim-multiple-cursors 插件。
+" 命令模式下，首先把光标移动到要重命名的变量处，然后开始按 Ctrl + N，
+" 可以看到变量被高亮，继续按 Ctrl + N，变量下一个出现的地方被高亮显示，
+" 如果要跳过某个位置该变量的出现（例如，字符串中也可能包含与该变量名相同的子字符串），
+" 在该处被高亮以后，再按 Ctrl + X 取消即可，不断选中变量的出现位置，
+" 直到所有想要选中的位置均选中完毕。 此时，按下 c（c 在 Nvim 中代表 *change*）,
+" 进入编辑模式，输入变量新的名称，保存即可。更多使用方法，请参考该插件的文档。
+"--------------------------------------------------------------------------
+Plug 'terryma/vim-multiple-cursors'
 
 
 "--------------------------------------------------------------------------
@@ -786,7 +802,6 @@ let g:cpp_class_decl_highlight = 1
 Plug 'tmhedberg/SimpylFold'
 
 
-
 "--------------------------------------------------------------------------
 "Nvim 中，使用 y 复制文本以后，不会提示复制了哪些文本，除非使用者非常熟悉 Nvim 按键，
 "否则可能会复制错误。vim-highlightedyank 这款插件可以在复制（yank）文本以后高亮提示哪些文本被复制了，非常实用 
@@ -798,7 +813,6 @@ Plug 'tmhedberg/SimpylFold'
 "let g:highlightedyank_highlight_duration = 1000 " 高亮持续时间为 1000 毫秒
 "--------------------------------------------------------------------------
 Plug 'machakann/vim-highlightedyank'
-
 
 
 "--------------------------------------------------------------------------
@@ -895,6 +909,7 @@ if s:memory_enough
     endif
 
     Plug 'Shougo/neoinclude.vim'
+    let g:python3_host_prog='C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python.exe'
 endif
 
 "--------------------------------------------------------------------------
