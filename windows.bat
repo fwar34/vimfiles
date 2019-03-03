@@ -17,6 +17,10 @@ if not exist %USERPROFILE%\vimfiles\vimrc (
 	xcopy %USERPROFILE%\vimfiles\gitconfig %USERPROFILE%\.gitconfig \f
 )
 
+if not exist %USERPROFILE%\AppData\Local\nvim\init.vim (
+	git clone https://github.com/fwar34/nvim.git %USERPROFILE%\AppData\Local\nvim
+)
+
 for /f %%I in ("fzf.exe") do (
 	if not exist %%~$PATH:I (
 		choco install fzf -y
@@ -60,8 +64,18 @@ for /f %%I in ("7z.exe") do (
 	)
 )
 
-rem find is proxy exist, if it is exist and set variable has_proxy
+rem find is proxy exist, if it is exist and set environment variable has_proxy
 reg query "hkcu\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable | findstr 0x1 && set has_proxy=1
+
+set wget_config="%USERPROFILE%\.wgetrc"
+if defined has_proxy (
+    if exist %wget_config% (
+        echo delete exist wget config file
+        del %wget_config%
+    )
+    echo http-proxy = 127.0.0.1:1080 > %wget_config%
+    echo set proxy for wget
+)
 
 if not exist "C:\Program Files\Vim\vim81\gvim.exe" (
 	rem Note:
@@ -69,23 +83,26 @@ if not exist "C:\Program Files\Vim\vim81\gvim.exe" (
 	rem python3 64bit + gvim 64bit
 	rem wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x64.exe -O %TEMP%\gvim.exe
 
-    if defined has_proxy (
-        wget -e "https_proxy=http://127.0.0.1:1080" https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
-    ) else (
-        wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
-    )
+    echo ------------------------------------------------------------------------------
+    echo start download 32 bit gvim
+    echo ------------------------------------------------------------------------------
+    pause
+    wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
 	%TEMP%\gvim.exe
 )
 
 for /f %%I in ("gtags.exe") do (
 	if not exist %%~$PATH:I (
-        if defined has_proxy (
-            wget -e "https_proxy=http://127.0.0.1:1080" http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
-        ) else (
-            wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
-        )
+        wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
 		7z x %TEMP%\global.zip -o%USERPROFILE%\global
-		SET "PATH=%PATH%;%USERPROFILE%%\global\bin"
+		SET "PATH=%PATH%;%USERPROFILE%\global\bin"
 	)
 )
 
+if exist %wget_config% (
+    echo delete wget config file
+    del %wget_config%
+)
+
+rem delete environment variable
+set has_proxy=
