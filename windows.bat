@@ -60,18 +60,30 @@ for /f %%I in ("7z.exe") do (
 	)
 )
 
+rem find is proxy exist, if it is exist and set variable has_proxy
+reg query "hkcu\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable | findstr 0x1 && set has_proxy=1
+
 if not exist "C:\Program Files\Vim\vim81\gvim.exe" (
 	rem Note:
 	rem python3 32bit + gvim 32bit
 	rem python3 64bit + gvim 64bit
 	rem wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x64.exe -O %TEMP%\gvim.exe
-	wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
+
+    if defined has_proxy (
+        wget -e "https_proxy=http://127.0.0.1:1080" https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
+    ) else (
+        wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
+    )
 	%TEMP%\gvim.exe
 )
 
 for /f %%I in ("gtags.exe") do (
 	if not exist %%~$PATH:I (
-		wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
+        if defined has_proxy (
+            wget -e "https_proxy=http://127.0.0.1:1080" http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
+        ) else (
+            wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
+        )
 		7z x %TEMP%\global.zip -o%USERPROFILE%\global
 		SET "PATH=%PATH%;%USERPROFILE%%\global\bin"
 	)
