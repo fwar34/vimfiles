@@ -61,7 +61,11 @@ for /f %%I in ("7z.exe") do (
 )
 
 if not exist "C:\Program Files\Vim\vim81\gvim.exe" (
-	wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x64.exe -O %TEMP%\gvim.exe
+	rem Note:
+	rem python3 32bit + gvim 32bit
+	rem python3 64bit + gvim 64bit
+	rem wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x64.exe -O %TEMP%\gvim.exe
+	wget https://github.com/vim/vim-win32-installer/releases/download/v8.1.0868/gvim_8.1.0868_x86.exe -O %TEMP%\gvim.exe
 	%TEMP%\gvim.exe
 )
 
