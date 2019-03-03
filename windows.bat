@@ -106,3 +106,5 @@ if exist %wget_config% (
 
 rem delete environment variable
 set has_proxy=
+
+@echo on
