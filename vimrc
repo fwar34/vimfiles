@@ -61,12 +61,12 @@ if has('win32')
     "sets path for python3
     if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
         set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
-	elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
-		set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
-	elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
-		set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
-	elseif isdirectory('C:\Python37')
-		set pythonthreedll=C:\Python37\python37.dll
+    elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
+        set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
+    elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
+        set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
+    elseif isdirectory('C:\Python37')
+        set pythonthreedll=C:\Python37\python37.dll
     endif
 endif
 
@@ -1318,6 +1318,14 @@ if has('gui_running')
             "设置中文为微软雅黑
             "set guifontwide=Microsoft\ YaHei:h12
             set guifontwide=幼圆:b:h11:cGB2312
+        elseif hostname() == "FENG-PC"
+            set guifont=Courier\ New:h12:cANSI
+            "设置中文为微软雅黑
+            "set guifontwide=Microsoft\ YaHei:h12
+            set guifontwide=黑体:b:h11:cGB2312
+            "set guifontwide=仿宋:b:h12:cGB2312
+            "set guifontwide=新宋体:b:h12:cGB2312
+            "set guifontwide=微软雅黑:h11:cGB2312
         else
             "set guifont=Courier_New:h12:cANSI
             "set guifont=Source_Code_Variable:h12:cANSI
