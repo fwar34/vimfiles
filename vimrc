@@ -38,7 +38,7 @@ if has("autocmd")
 endif
 
 " 启动全屏
-if has('win32')
+if has('win32') && !has('nvim')
     autocmd GUIEnter * simalt ~x
 
     "200~250
@@ -59,28 +59,25 @@ if has('win32')
 
     nnoremap <Space>tt :call Transparency()<CR>
 
-    if has('nvim')
-        if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
-            "let g:python3_host_prog='C:/Users/feng/AppData/neovim3/Scripts/python.exe'
-            "let g:python_host_prog='C:/Users/foo/Envs/neovim/Scripts/python.exe'
-        endif
-    else
-        "sets path for python3
-        if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
-            set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
-        elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
-            set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
-        elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
-            set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
-        elseif isdirectory('C:\Python37')
-            set pythonthreedll=C:\Python37\python37.dll
-        endif
+    "sets path for python3
+    if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
+        set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
+    elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
+        set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
+    elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
+        set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
+    elseif isdirectory('C:\Python37')
+        set pythonthreedll=C:\Python37\python37.dll
     endif
+endif
+
+if has('nvim')
+    let g:python3_host_prog='C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python.exe'
 endif
 
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-if has('gui_running')
+if has('gui_running') || has('nvim')
     set mouse=a
 else
     set mouse=
@@ -854,35 +851,36 @@ endif
 "--------------------------------------------------------------------------
 " deoplete
 "--------------------------------------------------------------------------
-if has('unix') && s:memory_enough
-    "if (s:memory_enough)
-        if has('nvim')
-            Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
+"if has('unix') && s:memory_enough
+if s:memory_enough
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
 
-            "https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/
-            "函数方法 Preview 的窗口如何自动关闭？ 在自动补全给出的列表中移动的时候，
-            "Nvim 的上半部分会出现一个很小的窗口，提示当前方法的参数，但是该窗口在自动补全完成后并不能自动消失，
-            "参考 https://goo.gl/Bn5n39，可以使用下面的设置使得窗口自动消失
-            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+        "https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/
+        "函数方法 Preview 的窗口如何自动关闭？ 在自动补全给出的列表中移动的时候，
+        "Nvim 的上半部分会出现一个很小的窗口，提示当前方法的参数，但是该窗口在自动补全完成后并不能自动消失，
+        "参考 https://goo.gl/Bn5n39，可以使用下面的设置使得窗口自动消失
+        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-            "如何设定为使用 Tab 键在自动补全的列表跳转？ 在 Nvim 的配置中，加入如下设置即可：
-            inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
-        else
-            Plug 'Shougo/deoplete.nvim', { 'tag': '4.1' }
-            Plug 'roxma/nvim-yarp'
-            Plug 'roxma/vim-hug-neovim-rpc'
-        endif
-        let g:deoplete#enable_at_startup = 1
+        "如何设定为使用 Tab 键在自动补全的列表跳转？ 在 Nvim 的配置中，加入如下设置即可：
+        inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
+    else
+        Plug 'Shougo/deoplete.nvim', { 'tag': '4.1' }
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
 
-        Plug 'zchee/deoplete-jedi'
-        "Plug 'Shougo/deoplete-clangx'
-        "" Change clang binary path
-        "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+    Plug 'zchee/deoplete-jedi'
+    "Plug 'Shougo/deoplete-clangx'
+    "" Change clang binary path
+    "call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
 
-        "" Change clang options
-        "call deoplete#custom#var('clangx', 'default_c_options', '')
-        "call deoplete#custom#var('clangx', 'default_cpp_options', '')
+    "" Change clang options
+    "call deoplete#custom#var('clangx', 'default_c_options', '')
+    "call deoplete#custom#var('clangx', 'default_cpp_options', '')
 
+    if has('unix')
         Plug 'zchee/deoplete-clang'
         if isdirectory('/usr/lib/llvm-6.0/')
             let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so.1'
@@ -894,9 +892,9 @@ if has('unix') && s:memory_enough
             let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
             let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
         endif
+    endif
 
-        Plug 'Shougo/neoinclude.vim'
-    "endif
+    Plug 'Shougo/neoinclude.vim'
 endif
 
 "--------------------------------------------------------------------------
@@ -907,35 +905,70 @@ Plug 'WenxiJin/.clang_complete'
 
 
 "--------------------------------------------------------------------------
-" 彩虹括号
+" 彩虹括号 for vim
 "--------------------------------------------------------------------------
-if (s:memory_enough)
+if (s:memory_enough) && !has('nvim')
     Plug 'luochen1990/rainbow'
-endif
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-let g:rainbow_conf = {
-	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-	\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-	\	'operators': '_,_',
-	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-	\	'separately': {
-	\		'*': {},
-	\		'tex': {
-	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-	\		},
-	\		'lisp': {
-	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-	\		},
-	\		'vim': {
-	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-	\		},
-	\		'html': {
-	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-	\		},
-	\		'css': 0,
-	\	}
-	\}
 
+    let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+    let g:rainbow_conf = {
+                \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+                \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+                \	'operators': '_,_',
+                \	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+                \	'separately': {
+                \		'*': {},
+                \		'tex': {
+                \			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+                \		},
+                \		'lisp': {
+                \			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+                \		},
+                \		'vim': {
+                \			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+                \		},
+                \		'html': {
+                \			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+                \		},
+                \		'css': 0,
+                \	}
+                \}
+endif
+
+"--------------------------------------------------------------------------
+" 彩虹括号 for nvim
+"--------------------------------------------------------------------------
+if has('nvim')
+    Plug 'kien/rainbow_parentheses.vim'
+
+    let g:rbpt_colorpairs = [
+                \ ['brown',       'RoyalBlue3'],
+                \ ['Darkblue',    'SeaGreen3'],
+                \ ['darkgray',    'DarkOrchid3'],
+                \ ['darkgreen',   'firebrick3'],
+                \ ['darkcyan',    'RoyalBlue3'],
+                \ ['darkred',     'SeaGreen3'],
+                \ ['darkmagenta', 'DarkOrchid3'],
+                \ ['brown',       'firebrick3'],
+                \ ['gray',        'RoyalBlue3'],
+                \ ['black',       'SeaGreen3'],
+                \ ['darkmagenta', 'DarkOrchid3'],
+                \ ['Darkblue',    'firebrick3'],
+                \ ['darkgreen',   'RoyalBlue3'],
+                \ ['darkcyan',    'SeaGreen3'],
+                \ ['darkred',     'DarkOrchid3'],
+                \ ['red',         'firebrick3'],
+                \ ]   
+
+    let g:rbpt_max = 16
+    let g:rbpt_loadcmd_toggle = 0
+
+    autocmd VimEnter * RainbowParenthesesToggle
+    autocmd Syntax * RainbowParenthesesLoadRound
+    autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadBraces
+
+endif
 
 "--------------------------------------------------------------------------
 " 调颜色插件 
@@ -1405,6 +1438,15 @@ if has('gui_running')
     endif
 endif
 
+if has('nvim')
+    if hostname() == "FENG-PC"
+        set guifont=Courier\ New:h12:cANSI
+        "设置中文为微软雅黑
+        "set guifontwide=Microsoft\ YaHei:h12
+        "set guifontwide=黑体:b:h11:cGB2312
+    endif
+endif
+
 syntax on           " 语法高亮  
 syntax enable
 set showcmd         " 输入的命令显示出来，看的清楚些  
@@ -1796,8 +1838,8 @@ au BufRead,BufNewFile *  setfiletype txt
 "guw 、gue
 "gUw、gUe
 "将当前光标所在的单词转换成 大写格式
-inoremap <M-u> <Esc>viwUA
-inoremap <M-i> <Esc>viwuA
+inoremap <M-u> <Esc>mgviwU`gli
+inoremap <M-i> <Esc>mgviwu`gli
 "将当前光标所在的单词转换成 小写格式
 nnoremap <M-u> mgviwU`g
 nnoremap <M-i> mgviwu`g
@@ -1940,7 +1982,7 @@ onoremap il> :<C-U>normal! F>vi><CR>
 "--------------------------------------------------------------------------
 " inside terminal 
 "--------------------------------------------------------------------------
-if has('terminal')
+if has('terminal') || has('nvim')
     if has('unix')
         nnoremap <silent> <Leader>tm :term zsh<CR>
     else
