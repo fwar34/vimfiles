@@ -29,6 +29,7 @@ if has('win32')
 else
     call s:read_total_memory()
 endif
+
 "--------------------------------------------------------------------------
 " 
 "--------------------------------------------------------------------------
@@ -58,15 +59,22 @@ if has('win32')
 
     nnoremap <Space>tt :call Transparency()<CR>
 
-    "sets path for python3
-    if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
-        set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
-    elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
-        set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
-    elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
-        set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
-    elseif isdirectory('C:\Python37')
-        set pythonthreedll=C:\Python37\python37.dll
+    if has('nvim')
+        if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
+            "let g:python3_host_prog='C:/Users/feng/AppData/neovim3/Scripts/python.exe'
+            "let g:python_host_prog='C:/Users/foo/Envs/neovim/Scripts/python.exe'
+        endif
+    else
+        "sets path for python3
+        if isdirectory('C:\Users\feng\AppData\Local\Programs\Python\Python37-32')
+            set pythonthreedll=C:\Users\feng\AppData\Local\Programs\Python\Python37-32\python37.dll
+        elseif isdirectory('C:\Users\fwar3\AppData\Local\Programs\Python\Python36')
+            set pythonthreedll=C:\Users\fwar3\AppData\Local\Programs\Python\Python36\python36.dll
+        elseif isdirectory('C:\Users\liang.feng\AppData\Local\Programs\Python\Python36')
+            set pythonthreedll=C:\Users\liang.feng\AppData\Local\Programs\Python\Python36\python36.dll
+        elseif isdirectory('C:\Python37')
+            set pythonthreedll=C:\Python37\python37.dll
+        endif
     endif
 endif
 
@@ -102,11 +110,12 @@ let g:mapleader = ";"
 " Plugins begin
 "--------------------------------------------------------------------------
 " set the runtime path to include Vundle and initialize
-if has('nvim')
-    call plug#begin('~/.config/nvim/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+"if has('nvim')
+    "call plug#begin('~/.config/nvim/plugged')
+"else
+    "call plug#begin('~/.vim/plugged')
+"endif
+call plug#begin('~/.vim/plugged')
 
 
 "--------------------------------------------------------------------------
@@ -598,7 +607,9 @@ Plug 'vim-scripts/AutoComplPop'
 
 
 "--------------------------------------------------------------------------
-" 
+" 以引号输入为例，说明如何使用这个插件。按下 "，会自动变成双引号""，此时光标位于双引号的中间，等待插入文本，
+" 文本插入结束以后，通常我们希望把光标置于右边引号的后面，此时，再按一次 "，光标就会跳转到右边引号的后面，等待我们继续输入文本。
+"如果想要删除包含文本的一对引号/括号，可以使用 ds<delimiter> 来删除（<delimiter> 代表具体要删除的符号）。
 "--------------------------------------------------------------------------
 Plug 'tpope/vim-surround'
 
@@ -765,12 +776,38 @@ let g:cpp_class_scope_highlight = 1
 "let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 "let g:cpp_experimental_simple_template_highlight = 1
+"
+
+
+"--------------------------------------------------------------------------
+"对于很长的代码，折叠代码有助于理清代码整体结构。SimplyFold 是一款不错代码折叠插件
+"zo： 打开光标处的 fold
+"zO： 递归打开光标处所有 fold
+"zc： 关闭光标处 fold
+"zC： 关闭光标处所有 fold
+"--------------------------------------------------------------------------
+Plug 'tmhedberg/SimpylFold'
+
+
+
+"--------------------------------------------------------------------------
+"Nvim 中，使用 y 复制文本以后，不会提示复制了哪些文本，除非使用者非常熟悉 Nvim 按键，
+"否则可能会复制错误。vim-highlightedyank 这款插件可以在复制（yank）文本以后高亮提示哪些文本被复制了，非常实用 
+"
+"通常情况下，安装插件以后不需要做任何设置即可使用，但是对于某些主题，高亮的颜色可能看不清楚，可以在 Nvim 设置中加入以下命令：
+"hi HighlightedyankRegion cterm=reverse gui=reverse
+
+"如果觉得高亮显示的时间太短，可以设置增加高亮显示的时间（单位为毫秒）：
+"let g:highlightedyank_highlight_duration = 1000 " 高亮持续时间为 1000 毫秒
+"--------------------------------------------------------------------------
+Plug 'machakann/vim-highlightedyank'
+
 
 
 "--------------------------------------------------------------------------
 " 书签可视化
 "--------------------------------------------------------------------------
-Plug 'https://github.com/kshenoy/vim-signature.git'
+Plug 'https://github.com/kshenoy/vim-signature.git' 
 let g:SignatureMap = {
         \ 'Leader'             :  "m",
         \ 'PlaceNextMark'      :  "m,",
@@ -821,6 +858,15 @@ if has('unix') && s:memory_enough
     "if (s:memory_enough)
         if has('nvim')
             Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
+
+            "https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/
+            "函数方法 Preview 的窗口如何自动关闭？ 在自动补全给出的列表中移动的时候，
+            "Nvim 的上半部分会出现一个很小的窗口，提示当前方法的参数，但是该窗口在自动补全完成后并不能自动消失，
+            "参考 https://goo.gl/Bn5n39，可以使用下面的设置使得窗口自动消失
+            autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+            "如何设定为使用 Tab 键在自动补全的列表跳转？ 在 Nvim 的配置中，加入如下设置即可：
+            inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
         else
             Plug 'Shougo/deoplete.nvim', { 'tag': '4.1' }
             Plug 'roxma/nvim-yarp'
