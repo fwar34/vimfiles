@@ -100,13 +100,15 @@ if not exist "C:\Program Files\Vim\vim81\gvim.exe" if not exist "C:\Program File
 		%TEMP%\gvim.exe
 )
 
-for /f %%I in ("gtags.exe") do (
-	if not exist %%~$PATH:I (
-        wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
-		7z x %TEMP%\global.zip -o%USERPROFILE%\global
-		SET "PATH=%PATH%;%USERPROFILE%\global\bin"
-	)
-)
+REM for /f %%I in ("gtags.exe") do (
+	REM if not exist %%~$PATH:I (
+        REM wget http://adoxa.altervista.org/global/dl.php?f=win32 -O %TEMP%\global.zip
+		REM 7z x %TEMP%\global.zip -o%USERPROFILE%\global
+		REM SET "PATH=%PATH%;%USERPROFILE%\global\bin"
+	REM )
+REM )
+
+start download_global.bat
 
 if exist %wget_config% (
     echo delete wget config file
