@@ -15,6 +15,7 @@ for /f %%I in ("git.exe") do (
 if not exist %USERPROFILE%\vimfiles\vimrc (
 	git clone https://github.com/fwar34/vimfiles.git %USERPROFILE%\vimfiles
 	xcopy %USERPROFILE%\vimfiles\gitconfig.windows %USERPROFILE%\.gitconfig \f
+	xcopy %USERPROFILE%\vimfiles\globalrc %USERPROFILE%\.globalrc \f
 )
 
 if not exist %USERPROFILE%\AppData\Local\nvim\init.vim (
