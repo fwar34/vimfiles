@@ -32,6 +32,6 @@
 [gui]
 	recentrepo = F:/mine/Other
 [https]
-    proxy = https://127.0.0.1:1080
+    proxy = socks5://127.0.0.1:1080
 [http]
-    proxy = http://127.0.0.1:1080
+    proxy = socks5://127.0.0.1:1080
