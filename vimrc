@@ -6,7 +6,7 @@
 "=========================================
 
 if has('win32')
-    source ~\AppData\Local\nvim\init.vim
+    source ~\AppData\Local\nvim\ginit.vim
 else
-    source ~/.config/nvim/init.vim
+    source ~/.config/nvim/ginit.vim
 endif
