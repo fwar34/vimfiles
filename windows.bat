@@ -6,11 +6,11 @@ if not exist %ALLUSERSPROFILE%\chocolatey\choco.exe (
 )
 
 rem install git
-for /f %%I in ("git.exe") do (
-	if not exist %%~$PATH:I (
-		start choco install git -y
-	)
-)
+REM for /f %%I in ("git.exe") do (
+	REM if not exist %%~$PATH:I (
+		REM start choco install git -y
+	REM )
+REM )
 
 if not exist %USERPROFILE%\vimfiles\vimrc (
 	git clone https://github.com/fwar34/vimfiles.git %USERPROFILE%\vimfiles
@@ -46,18 +46,24 @@ for /f %%I in ("ag.exe") do (
 	)
 )
 
+REM for /f %%I in ("ctags.exe") do (
+	REM if not exist %%~$PATH:I (
+		REM choco install ctags -y
+	REM )
+REM )
+
 for /f %%I in ("ctags.exe") do (
 	if not exist %%~$PATH:I (
-		choco install ctags -y
+		choco install universal-ctags -y
 	)
 )
 
 
-for /f %%I in ("python.exe") do (
-	if not exist %%~$PATH:I (
-		choco install python3 -y
-	)
-)
+REM for /f %%I in ("python.exe") do (
+	REM if not exist %%~$PATH:I (
+		REM choco install python3 -y
+	REM )
+REM )
 
 for /f %%I in ("7z.exe") do (
 	if not exist %%~$PATH:I (
