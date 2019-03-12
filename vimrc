@@ -6,6 +6,9 @@
 "=========================================
 
 if has('win32')
+    source ~\AppData\Local\nvim\autoload\plug.vim
+    source ~\AppData\Local\nvim\autoload\gtags.vim
+    source ~\AppData\Local\nvim\autoload\gtags-cscope.vim
     source ~\AppData\Local\nvim\init.vim
 else
     source ~/.config/nvim/init.vim
