@@ -11,5 +11,8 @@ if has('win32')
     source ~\AppData\Local\nvim\autoload\gtags-cscope.vim
     source ~\AppData\Local\nvim\init.vim
 else
+    source ~/.config/nvim/autoload/plug.vim
+    source ~/.config/nvim/autoload/gtags.vim
+    source ~/.config/nvim/autoload/gtags-cscope.vim
     source ~/.config/nvim/init.vim
 endif
