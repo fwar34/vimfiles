@@ -46,6 +46,12 @@ for /f %%I in ("ag.exe") do (
 	)
 )
 
+for /f %%I in ("diff.exe") do (
+	if not exist %%~$PATH:I (
+		choco install diffutils -y
+	)
+)
+
 REM for /f %%I in ("ctags.exe") do (
 	REM if not exist %%~$PATH:I (
 		REM choco install ctags -y
