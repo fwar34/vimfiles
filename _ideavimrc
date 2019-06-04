@@ -25,11 +25,21 @@ nnoremap <Leader>fu :action FindUsages<CR>
 nnoremap ge G
 
 " Quit normal mode
-nnoremap <Space>qq :q<CR>
+nnoremap <Leader>qq :q<CR>
 nnoremap <Leader>Q  :qa!<CR>
+
+nnoremap <Space>qq <M-F4>
+
+inoremap <C-U> <Esc>mgviwU`gli
+inoremap <C-u> <Esc>mgviwu`gli
+nnoremap <C-U> mgviwU`g
+nnoremap <C-u> mgviwu`g
+
+nnoremap <Leader>mm %
 
 "close file
 nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
+nnoremap <Leader>do :action CloseAllWindowButCurrent<CR>
 
 " Move half page faster
 "nnoremap <Leader>d  <C-d>
@@ -60,17 +70,19 @@ nnoremap Y y$
 " quit ==> close current window
 "nnoremap <Leader>dw <C-W>w
 
+nnoremap <Space><Space> :
+
 " Window operation
-nnoremap <Leader>ww <C-W>w
+"nnoremap <Leader>ww <C-W>w
+nnoremap <Leader><TAB> <C-W>w
 nnoremap <Leader>dw <C-W>c
+"nnoremap <Leader>do :action 
 nnoremap <Leader>wj <C-W>j
 nnoremap <Leader>wk <C-W>k
 nnoremap <Leader>wh <C-W>h
 nnoremap <Leader>wl <C-W>l
 nnoremap <Leader>ws <C-W>s
-nnoremap <Leader>w- <C-W>s
 nnoremap <Leader>wv <C-W>v
-nnoremap <Leader>w\| <C-W>v
 
 " Tab operation
 nnoremap tn gt
@@ -93,17 +105,9 @@ nnoremap <Leader>br :action ViewBreakpoints<CR>
 nnoremap <Leader>cv :action ChangeView<CR>
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
-"nnoremap ga :action GotoAction<CR>
-"nnoremap gc :action GotoClass<CR>
-"nnoremap gd :action GotoDeclaration<CR>
-"nnoremap gf :action GotoFile<CR>
-"nnoremap gi :action GotoImplementation<CR>
-"nnoremap gs :action GotoSymbol<CR>
-
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
 nnoremap <Leader>gd :action GotoDeclaration<CR>
-nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap <Leader>gi :action GotoImplementation<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
 nnoremap <Leader>gt :action GotoTest<CR>
@@ -118,11 +122,12 @@ nnoremap <Leader>oi :action OptimizeImports<CR>
 
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
 
-nnoremap <Leader>rc :action RunToCursor<CR>
+"nnoremap <Leader>rc :action RunToCursor<CR>
 nnoremap <Leader>rC :action ChooseRunConfiguration<CR>
 nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>rf :action RenameFile<CR>
 
+nnoremap <Leader>rc :action Run<CR>
 nnoremap <Leader>rr :action Rerun<CR>
 
 nnoremap <Leader>se :action SearchEverywhere<CR>
