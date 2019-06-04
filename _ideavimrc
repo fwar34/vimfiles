@@ -16,12 +16,10 @@ set clipboard=unnamed
 nnoremap <Leader>xx :nohlsearch<CR>
 nnoremap <Leader>zz :w<CR>
 nnoremap <Leader>? :action GotoAction<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gi :action GotoImplementation<CR>
 
 " project search
 nnoremap <Leader>ps :action SearchEverywhere<CR>
-nnoremap <Leader>pf :action GotoFile<CR>
+nnoremap <Leader>ff :action GotoFile<CR>
 
 nnoremap fu :action FindUsages<CR>
 nnoremap <Leader>fu :action FindUsages<CR>
@@ -92,12 +90,12 @@ nnoremap <Leader>br :action ViewBreakpoints<CR>
 nnoremap <Leader>cv :action ChangeView<CR>
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
-nnoremap ga :action GotoAction<CR>
-nnoremap gc :action GotoClass<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gf :action GotoFile<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gs :action GotoSymbol<CR>
+"nnoremap ga :action GotoAction<CR>
+"nnoremap gc :action GotoClass<CR>
+"nnoremap gd :action GotoDeclaration<CR>
+"nnoremap gf :action GotoFile<CR>
+"nnoremap gi :action GotoImplementation<CR>
+"nnoremap gs :action GotoSymbol<CR>
 
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
@@ -107,7 +105,7 @@ nnoremap <Leader>gi :action GotoImplementation<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
 nnoremap <Leader>gt :action GotoTest<CR>
 
-nnoremap <Leader>fp :action ShowFilePath<CR>
+nnoremap <Leader>fd :action ShowFilePath<CR>
 
 nnoremap <Leader>ic :action InspectCode<CR>
 
