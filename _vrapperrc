@@ -1,1 +1,9 @@
-imap ;g <ESC>
+" vrapper configuration file
+
+inoremap ;g <ESC>
+nnoremap ;zz :w<CR>
+nnoremap ;a ^
+nnoremap ;e $
+nnoremap ;mm %
+inoremap <C-f> <Plug>(eclipse-motion:org.eclipse.ui.edit.text.goto.wordNext)
+inoremap <C-b> <Plug>(eclipse-motion:org.eclipse.ui.edit.text.goto.wordPrevious)
