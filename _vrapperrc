@@ -1,9 +1,21 @@
 " vrapper configuration file
+let mapleader=';'
 
-inoremap ;g <ESC>
-nnoremap ;zz :w<CR>
-nnoremap ;a ^
-nnoremap ;e $
-nnoremap ;mm %
-inoremap <C-f> <Plug>(eclipse-motion:org.eclipse.ui.edit.text.goto.wordNext)
-inoremap <C-b> <Plug>(eclipse-motion:org.eclipse.ui.edit.text.goto.wordPrevious)
+" set smartident
+set autoindent
+set nospell
+
+inoremap <leader>g <ESC>
+vnoremap <leader>g <Esc>
+vnoremap v <Esc>
+nnoremap <leader>zz :w<CR>
+nnoremap <leader>a ^
+nnoremap H ^
+nnoremap <leader>e $
+nnoremap L $
+nnoremap <leader>mm %
+nnoremap <leader>bs :ls<CR>
+nnoremap <leader>xx :set nohlsearch<CR>
+nnoremap <SPACE><SPACE> :
+inoremap <C-f> <RIGHT>
+inoremap <C-b> <LEFT>
