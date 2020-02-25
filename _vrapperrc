@@ -17,5 +17,7 @@ nnoremap <leader>mm %
 nnoremap <leader>bs :ls<CR>
 nnoremap <leader>xx :set nohlsearch<CR>
 nnoremap <SPACE><SPACE> :
-inoremap <C-f> <RIGHT>
-inoremap <C-b> <LEFT>
+inoremap <C-l> <RIGHT>
+inoremap <C-h> <LEFT>
+nnoremap u :undo<CR>
+nnoremap <C-r> :redo<CR>
