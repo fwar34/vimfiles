@@ -1,146 +1,153 @@
-" leader
-let mapleader=';'
+ leader                                                                                                                       
+let mapleader=';'                                                                                                              
 
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmode
-set number
-" set relativenumber
-set scrolloff=3
-set history=100000
-set clipboard=unnamed
-
-" clear the highlighted search result
-nnoremap <Leader>xx :nohlsearch<CR>
-nnoremap <Leader>zz :w<CR>
-
-" project search
-nnoremap <Leader>ps :action SearchEverywhere<CR>
-nnoremap <Leader>ff :action GotoFile<CR>
-
-nnoremap <Leader>fm :action ReformatCode<CR>
-nnoremap fu :action FindUsages<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
-nnoremap ge G
-
-" Quit normal mode
-nnoremap <Leader>qq :q<CR>
-nnoremap <Leader>Q  :qa!<CR>
-
-nnoremap <Space>qq <M-F4>
-
-inoremap <C-U> <Esc>mgviwU`gli
-inoremap <C-u> <Esc>mgviwu`gli
-nnoremap <C-U> mgviwU`g
-nnoremap <C-u> mgviwu`g
-
-nnoremap <Leader>mm %
-nnoremap mm %
-
-"close file
-nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
-nnoremap <Leader>do :action CloseAllWindowButCurrent<CR>
-
-" Move half page faster
-"nnoremap <Leader>d  <C-d>
-"nnoremap <Leader>u  <C-u>
-
-" Insert mode shortcut
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-a> <Esc>I
-inoremap <C-e> <End>
-inoremap <C-d> <Delete>
-
-" Quit insert mode
-inoremap ;g <Esc>
-vnoremap ;g <Esc>
-" Quit visual mode
-vnoremap v <Esc>
-
-nnoremap H ^
-nnoremap <Leader>a ^
-nnoremap L $
-nnoremap <Leader>e $
-
-" Redo
-nnoremap U <C-r>
-" Yank to the end of line
-nnoremap Y y$
-" quit ==> close current window
-"nnoremap <Leader>dw <C-W>w
-
-nnoremap <Space><Space> :
-
-" Window operation
-"nnoremap <Leader>ww <C-W>w
-nnoremap <Leader><TAB> <C-W>w
-nnoremap <Leader>dw <C-W>c
-"nnoremap <Leader>do :action 
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
-nnoremap <Leader>ws <C-W>s
+" plugins
+set surround  		   "Commands: ys, cs, ds, S
+set multiple-cursors   "Commands: <A-n>, <A-x>, <A-p>, g<A-n>
+set commentary         "Commands: gcc, gc + motion, v_gc   
+set argtextobj         "Additional text objects: aa, ia             
+						  
+set hlsearch                                                                                                                   
+set incsearch                                                                                                                  
+set ignorecase                                                                                                                 
+set smartcase                                                                                                                  
+set showmode                                                                                                                   
+set number                                                                                                                     
+" set relativenumber                                                                                                           
+set scrolloff=3                                                                                                                
+set history=100000                                                                                                             
+set clipboard=unnamed                                                                                                          
+                                                                                                                               
+" clear the highlighted search result                                                                                          
+nnoremap <Leader>xx :nohlsearch<CR>                                                                                            
+nnoremap <Leader>zz :w<CR>                                                                                                     
+                                                                                                                               
+" project search                                                                                                               
+nnoremap <Leader>ps :action SearchEverywhere<CR>                                                                               
+nnoremap <Leader>ff :action GotoFile<CR>                                                                                       
+                                                                                                                               
+nnoremap <Leader>fm :action ReformatCode<CR>                                                                                   
+nnoremap fu :action FindUsages<CR>                                                                                             
+nnoremap <Leader>fu :action FindUsages<CR>                                                                                     
+nnoremap ge G                                                                                                                  
+                                                                                                                               
+" Quit normal mode                                                                                                             
+nnoremap <Leader>qq :q<CR>                                                                                                     
+nnoremap <Leader>Q  :qa!<CR> 
+                                                                                                                               
+nnoremap <Space>qq <M-F4>                                                                                                      
+                                                                                                                               
+inoremap <C-U> <Esc>mgviwU`gli                                                                                                 
+inoremap <C-u> <Esc>mgviwu`gli                                                                                                 
+nnoremap <C-U> mgviwU`g                                                                                                        
+nnoremap <C-u> mgviwu`g                                                                                                        
+                                                                                                                               
+nnoremap <Leader>mm %                                                                                                          
+nnoremap mm %                                                                                                                  
+                                                                                                                               
+"close file                                                                                                                    
+nnoremap <Leader>co :action CloseAllEditorsButActive<CR>                                                                       
+nnoremap <Leader>do :action CloseAllWindowButCurrent<CR>                                                                       
+                                                                                                                               
+" Move half page faster                                                                                                        
+"nnoremap <Leader>d  <C-d>                                                                                                     
+"nnoremap <Leader>u  <C-u>                                                                                                     
+                                                                                                                               
+" Insert mode shortcut                                                                                                         
+inoremap <C-h> <Left>                                                                                                          
+inoremap <C-j> <Down>                                                                                                          
+inoremap <C-k> <Up>                                                                                                            
+inoremap <C-l> <Right>                                                                                                         
+inoremap <C-a> <Esc>I                                                                                                          
+inoremap <C-e> <End>                                                                                                           
+inoremap <C-d> <Delete>                                                                                                        
+                                                                                                                               
+" Quit insert mode                                                                                                             
+inoremap ;g <Esc> 
+vnoremap ;g <Esc>                                                                                                              
+" Quit visual mode                                                                                                             
+vnoremap v <Esc>                                                                                                               
+                                                                                                                               
+nnoremap H ^                                                                                                                   
+nnoremap <Leader>a ^                                                                                                           
+nnoremap L $                                                                                                                   
+nnoremap <Leader>e $                                                                                                           
+                                                                                                                               
+" Redo                                                                                                                         
+nnoremap U <C-r>                                                                                                               
+" Yank to the end of line                                                                                                      
+nnoremap Y y$                                                                                                                  
+" quit ==> close current window                                                                                                
+"nnoremap <Leader>dw <C-W>w                                                                                                    
+                                                                                                                               
+nnoremap <Space><Space> :                                                                                                      
+                                                                                                                               
+" Window operation                                                                                                             
+"nnoremap <Leader>ww <C-W>w                                                                                                    
+nnoremap <Leader><TAB> <C-W>w                                                                                                  
+nnoremap <Leader>dw <C-W>c                                                                                                     
+"nnoremap <Leader>do :action                                                                                                   
+nnoremap <Leader>wj <C-W>j                                                                                                     
+nnoremap <Leader>wk <C-W>k                                                                                                     
+nnoremap <Leader>wh <C-W>h                                                                                                     
+nnoremap <Leader>wl <C-W>l                                                                                                     
+nnoremap <Leader>ws <C-W>s                                                                                                     
 nnoremap <Leader>wv <C-W>v
-
-" Tab operation
-nnoremap tn gt
-nnoremap tp gT
-
-" ==================================================
-" Show all the provided actions via `:actionlist`
-" ==================================================
-
-" built in search looks better
-nnoremap / :action Find<CR>
-" but preserve ideavim search
-nnoremap <Leader>/ /
-
-nnoremap <Leader>ci :action CommentByLineComment<CR>
-
-nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
-nnoremap <Leader>br :action ViewBreakpoints<CR>
-
-nnoremap <Leader>cv :action ChangeView<CR>
-nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
-
-nnoremap <Leader>ga :action GotoAction<CR>
-nnoremap <Leader>gc :action GotoClass<CR>
-nnoremap <Leader>gd :action GotoDeclaration<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-nnoremap <Leader>gt :action GotoTest<CR>
-
+                                                                                                                               
+" Tab operation                                                                                                                
+nnoremap tn gt                                                                                                                 
+nnoremap tp gT                                                                                                                 
+                                                                                                                               
+" ==================================================                                                                           
+" Show all the provided actions via `:actionlist`                                                                              
+" ==================================================                                                                           
+                                                                                                                               
+" built in search looks better                                                                                                 
+nnoremap / :action Find<CR>                                                                                                    
+" but preserve ideavim search                                                                                                  
+nnoremap <Leader>/ /                                                                                                           
+                                                                                                                               
+nnoremap <Leader>ci :action CommentByLineComment<CR>                                                                           
+                                                                                                                               
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>                                                                           
+nnoremap <Leader>br :action ViewBreakpoints<CR>                                                                                
+                                                                                                                               
+nnoremap <Leader>cv :action ChangeView<CR>                                                                                     
+nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>                                                                       
+                                                                                                                               
+nnoremap <Leader>ga :action GotoAction<CR>                                                                                     
+nnoremap <Leader>gc :action GotoClass<CR>                                                                                      
+nnoremap <Leader>gd :action GotoDeclaration<CR>                                                                                
+nnoremap <Leader>gi :action GotoImplementation<CR>                                                                             
+nnoremap <Leader>gs :action GotoSymbol<CR>                                                                                     
+nnoremap <Leader>gt :action GotoTest<CR>                                                                                       
+                                                                                                                               
 nnoremap <Leader>fd :action ShowFilePath<CR>
-
-nnoremap <Leader>ic :action InspectCode<CR>
-
-nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
-
-nnoremap <Leader>oi :action OptimizeImports<CR>
-
-nnoremap <Leader>pm :action ShowPopupMenu<CR>
-
-"nnoremap <Leader>rc :action RunToCursor<CR>
-nnoremap <Leader>rC :action ChooseRunConfiguration<CR>
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>rf :action RenameFile<CR>
-
-nnoremap <Leader>rc :action Run<CR>
-nnoremap <Leader>rr :action Rerun<CR>
-
-nnoremap <Leader>se :action SearchEverywhere<CR>
-nnoremap <Leader>su :action ShowUsages<CR>
-nnoremap <Leader>tc :action CloseActiveTab<CR>
-nnoremap <Leader>si :action StepInto<CR>
-
-nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
-
-nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>
-vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>
-nnoremap <Leader>la :actionlist<CR>
+                                                                                                                               
+nnoremap <Leader>ic :action InspectCode<CR>                                                                                    
+                                                                                                                               
+nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>                                                                
+                                                                                                                               
+nnoremap <Leader>oi :action OptimizeImports<CR>                                                                                
+                                                                                                                               
+nnoremap <Leader>pm :action ShowPopupMenu<CR>                                                                                  
+                                                                                                                               
+"nnoremap <Leader>rc :action RunToCursor<CR>                                                                                   
+nnoremap <Leader>rC :action ChooseRunConfiguration<CR>                                                                         
+nnoremap <Leader>re :action RenameElement<CR>                                                                                  
+nnoremap <Leader>rf :action RenameFile<CR>                                                                                     
+                                                                                                                               
+nnoremap <Leader>rc :action Run<CR>                                                                                            
+nnoremap <Leader>rr :action Rerun<CR>                                                                                          
+                                                                                                                               
+nnoremap <Leader>se :action SearchEverywhere<CR>                                                                               
+nnoremap <Leader>su :action ShowUsages<CR>                                                                                     
+nnoremap <Leader>tc :action CloseActiveTab<CR>                                                                                 
+nnoremap <Leader>si :action StepInto<CR>                                                                                       
+                                                                                                                               
+nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>                                                                           
+                                                                                                                               
+nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>                                                               
+vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>                                                                
+nnoremap <Leader>la :actionlist<CR>                                                                                            
+set clipboard+=ideaput    
