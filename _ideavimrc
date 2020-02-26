@@ -17,6 +17,7 @@ set number
 set scrolloff=3                                                                                                                
 set history=100000                                                                                                             
 set clipboard=unnamed                                                                                                          
+set clipboard+=ideaput
                                                                                                                                
 " clear the highlighted search result                                                                                          
 nnoremap <Leader>xx :nohlsearch<CR>                                                                                            
@@ -150,4 +151,3 @@ nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>                                                               
 vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>                                                                
 nnoremap <Leader>la :actionlist<CR>                                                                                            
-set clipboard+=ideaput    
