@@ -17,7 +17,6 @@ set number
 set scrolloff=3                                                                                                                
 set history=100000                                                                                                             
 set clipboard=unnamed                                                                                                          
-set clipboard+=ideaput
                                                                                                                                
 " clear the highlighted search result                                                                                          
 nnoremap <Leader>xx :nohlsearch<CR>                                                                                            
@@ -100,7 +99,7 @@ nnoremap tn gt
 nnoremap tp gT                                                                                                                 
                                                                                                                                
 " ==================================================                                                                           
-" Show all the provided actions via `:actionlist`                                                                              
+" Show all the provided actions via `:actionlist`
 " ==================================================                                                                           
                                                                                                                                
 " built in search looks better                                                                                                 
@@ -110,10 +109,10 @@ nnoremap <Leader>/ /
                                                                                                                                
 nnoremap <Leader>ci :action CommentByLineComment<CR>                                                                           
                                                                                                                                
-nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>                                                                           
-nnoremap <Leader>br :action ViewBreakpoints<CR>                                                                                
-                                                                                                                               
-nnoremap <Leader>cv :action ChangeView<CR>                                                                                     
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>br :action ViewBreakpoints<CR>
+
+nnoremap <Leader>cv :action ChangeView<CR>
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>                                                                       
                                                                                                                                
 nnoremap <Leader>ga :action GotoAction<CR>                                                                                     
@@ -151,3 +150,4 @@ nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>                                                               
 vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>                                                                
 nnoremap <Leader>la :actionlist<CR>                                                                                            
+set clipboard+=ideaput
