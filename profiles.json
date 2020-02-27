@@ -13,15 +13,15 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles,
-"colorScheme" : "Campbell",
-//"colorScheme" : "UbuntuLegit",
-//"colorScheme" : "Ubuntu",
-//"colorScheme" : "Solarized Light",
-//"colorScheme" : "Solarized Dark",
+			"colorScheme" : "Campbell",
+			//"colorScheme" : "UbuntuLegit",
+			//"colorScheme" : "Ubuntu",
+			//"colorScheme" : "Solarized Light",
+			//"colorScheme" : "Solarized Dark",
 
-//"copyOnSelect" : true,
-            "fontFace" : "FiraCode Nerd Font Mono",
-            "fontSize" : 12
+			//"copyOnSelect" : true,
+						"fontFace" : "FiraCode Nerd Font Mono",
+						"fontSize" : 12
         },
         "list":
         [
