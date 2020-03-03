@@ -23,8 +23,7 @@ nnoremap <Leader>xx :nohlsearch<CR>
 nnoremap <Leader>zz :w<CR>                                                                                                     
                                                                                                                                
 " project search                                                                                                               
-nnoremap <Leader>ps :action SearchEverywhere<CR>                                                                               
-nnoremap <Leader>ff :action GotoFile<CR>                                                                                       
+nnoremap <Leader>ff :action GotoFile<CR>
                                                                                                                                
 nnoremap <Leader>fm :action ReformatCode<CR>                                                                                   
 nnoremap fu :action FindUsages<CR>                                                                                             
@@ -38,22 +37,17 @@ nnoremap <Leader>Q  :qa!<CR>
 nnoremap <Space>qq <M-F4>                                                                                                      
                                                                                                                                
 inoremap <C-U> <Esc>mgviwU`gli                                                                                                 
-inoremap <C-u> <Esc>mgviwu`gli                                                                                                 
-nnoremap <C-U> mgviwU`g                                                                                                        
+inoremap <C-u> <Esc>mgviwu`gli
+nnoremap <C-U> mgviwU`g
 nnoremap <C-u> mgviwu`g                                                                                                        
                                                                                                                                
 nnoremap <Leader>mm %                                                                                                          
-nnoremap mm %                                                                                                                  
-                                                                                                                               
+
 "close file                                                                                                                    
 nnoremap <Leader>co :action CloseAllEditorsButActive<CR>                                                                       
 nnoremap <Leader>do :action CloseAllWindowButCurrent<CR>                                                                       
                                                                                                                                
-" Move half page faster                                                                                                        
-"nnoremap <Leader>d  <C-d>                                                                                                     
-"nnoremap <Leader>u  <C-u>                                                                                                     
-                                                                                                                               
-" Insert mode shortcut                                                                                                         
+" Insert mode shortcut
 inoremap <C-h> <Left>                                                                                                          
 inoremap <C-j> <Down>                                                                                                          
 inoremap <C-k> <Up>                                                                                                            
@@ -68,7 +62,7 @@ vnoremap ;g <Esc>
 " Quit visual mode                                                                                                             
 vnoremap v <Esc>                                                                                                               
                                                                                                                                
-nnoremap H ^                                                                                                                   
+nnoremap H ^
 nnoremap <Leader>a ^                                                                                                           
 nnoremap L $                                                                                                                   
 nnoremap <Leader>e $                                                                                                           
@@ -83,8 +77,7 @@ nnoremap Y y$
 nnoremap <Space><Space> :                                                                                                      
                                                                                                                                
 " Window operation                                                                                                             
-"nnoremap <Leader>ww <C-W>w                                                                                                    
-nnoremap <Leader><TAB> <C-W>w                                                                                                  
+nnoremap <Leader><TAB> <C-W>w
 nnoremap <Leader>dw <C-W>c                                                                                                     
 "nnoremap <Leader>do :action                                                                                                   
 nnoremap <Leader>wj <C-W>j                                                                                                     
@@ -106,9 +99,9 @@ nnoremap tp gT
 nnoremap / :action Find<CR>                                                                                                    
 " but preserve ideavim search                                                                                                  
 nnoremap <Leader>/ /                                                                                                           
-                                                                                                                               
-nnoremap <Leader>ci :action CommentByLineComment<CR>                                                                           
-                                                                                                                               
+
+nnoremap <Leader>ci :action CommentByLineComment<CR>
+
 nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>br :action ViewBreakpoints<CR>
 
@@ -151,3 +144,6 @@ nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>                                                                
 nnoremap <Leader>la :actionlist<CR>                                                                                            
 set clipboard+=ideaput
+
+"Ctrl+Shift+F12
+nnoremap <Leader>ww :action HideAllWindows<CR>
