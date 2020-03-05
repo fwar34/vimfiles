@@ -23,6 +23,13 @@
 			"copyOnSelect" : true,
             "fontFace" : "FiraCode Nerd Font Mono",
             "fontSize" : 12,
+			"wordDelimiters" : " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502",
+			//"cursorColor" : "#FFFFFF",
+			//"cursorShape" : "bar",
+			"cursorColor": "#F0E68C",
+			//"cursorShape": "emptyBox",
+			"cursorShape": "filledBox",
+
 			"scrollbarState" : "", // 滚动条状态,变量:"visible","hidden"
 			"useAcrylic" : true, // 是否使用毛玻璃
 			"acrylicOpacity" : 0.95 // 毛玻璃透明度
@@ -48,6 +55,8 @@
                 "hidden": false,
                 "name": "Ubuntu-18.04",
                 "source": "Windows.Terminal.Wsl",
+
+
 				"startingDirectory" : "/home/feng"
             },
             {
@@ -67,7 +76,7 @@
 
     // Add custom color schemes to this array
  "schemes": [
-{"name": "Campbell",
+	{"name": "Campbell",
       "foreground": "#F2F2F2",
       "background": "#0C0C0C",
       "colors": [
@@ -88,8 +97,8 @@
         "#61D6D6",
         "#F2F2F2"
       ]
-},
- {
+	},
+	{
       "name": "Solarized Light",
       "foreground": "#073642",
       "background": "#FDF6E3",
