@@ -44,6 +44,7 @@
 
 --exclude=*.war
 --exclude=*.jar
+--exclude=*.a
 --exclude=*.class
 --exclude=*flymake*
 --exclude=*.min.js
@@ -57,6 +58,7 @@
 --exclude=*.sql
 --exclude=*.sass
 --exclude=*.ftl
+--exclude=log
 --exclude=tags
 --exclude=TAGS
 --exclude=GTAGS
