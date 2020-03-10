@@ -1,6 +1,12 @@
+//https://gist.github.com/redguardtoo/b12ddae3b8010a276e9b, 我有修改，注释了--langdef=Rust --langdef=Rust,要不生成tags文件，ctags一直返回错误 
+//报错也可以参考https://github.com/universal-ctags/ctags/issues/2127,只不过我没有试
+// --langdef=typescript
+// --langmap=typescript:.ts.tsx
+// Remove above two lines. Instead, put --map-TypeScript=+.tsx.
+
 --c++-kinds=+p
 --fields=+iaS
---extra=+q
+--extras=+q
 --exclude=*/.hg/*
 --exclude=.hg/*
 --exclude=*/.cvs/*
@@ -743,7 +749,7 @@
 
 --langmap=java:+.aj
 
---langdef=markdown
+// --langdef=markdown
 --langmap=markdown:.md
 --regex-markdown=/^(#[^#].*)/\1/1,level1/
 --regex-markdown=/^(##[^#].*)/\1/2,level2/
@@ -752,7 +758,7 @@
 --regex-markdown=/^(==[^=].*)/\1/2,level2/
 --regex-markdown=/^(===[^=].{0,19})/\1/3,level3/
 
---langdef=Rust
+// --langdef=Rust
 --langmap=Rust:.rs
 --regex-Rust=/^[ \t]*(#\[[^\]]\][ \t]*)*(pub[ \t]+)?(extern[ \t]+)?("[^"]+"[ \t]+)?(unsafe[ \t]+)?fn[ \t]+([a-zA-Z0-9_]+)/\6/f,functions,function definitions/
 --regex-Rust=/^[ \t]*(pub[ \t]+)?type[ \t]+([a-zA-Z0-9_]+)/\2/T,types,type definitions/
