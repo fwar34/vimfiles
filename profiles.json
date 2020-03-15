@@ -22,6 +22,7 @@
 
 			"copyOnSelect" : true,
             "fontFace" : "FiraCode Nerd Font Mono",
+			//"fontFace" : "RobotoMono Nerd Font",
             "fontSize" : 12,
 			"wordDelimiters" : " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502",
 			//"cursorColor" : "#FFFFFF",
@@ -69,6 +70,24 @@
                 "guid": "{0110db4a-cf7b-5647-9a03-7232d80cd09e}",
                 "hidden": false,
                 "name": "openSUSE-Leap-15-1",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": false,
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "hidden": false,
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{294f51eb-36df-59f7-b3b3-2f8171294a97}",
+                "hidden": false,
+                "name": "Debian-F",
                 "source": "Windows.Terminal.Wsl"
             }
         ]
