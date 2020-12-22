@@ -1,1 +1,3 @@
 .netrwhist
+cargo/registry/
+cargo/.package-cache
