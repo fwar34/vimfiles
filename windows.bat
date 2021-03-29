@@ -33,6 +33,12 @@ for /f %%I in ("fzf.exe") do (
 	)
 )
 
+for /f %%I in ("svn.exe") do (
+	if not exist %%~$PATH:I (
+		choco install svn -y
+	)
+)
+
 for /f %%I in ("wget.exe") do (
 	if not exist %%~$PATH:I (
 		choco install wget -y
