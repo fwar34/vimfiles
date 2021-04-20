@@ -5,3 +5,4 @@ cargo/git
 cargo/.crates.toml
 cargo/.crates2.json
 cargo/bin
+error.txt
