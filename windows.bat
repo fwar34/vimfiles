@@ -88,6 +88,24 @@ for /f %%I in ("7z.exe") do (
 	)
 )
 
+for /f %%I in ("fd.exe") do (
+    if not exist %%~$PATH:I (
+        scoop install fd 
+    )
+)
+
+for /f %%I in ("figlet.exe") do (
+    if not exist %%~$PATH:I (
+        scoop install figlet
+    )
+)
+
+for /f %%I in ("rg.exe") do (
+    if not exist %%~$PATH:I (
+        scoop install ripgrep
+    )
+)
+
 rem find is proxy exist, if it is exist and set environment variable has_proxy
 reg query "hkcu\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable | findstr 0x1 && set has_proxy=1
 set wget_config="%USERPROFILE%\.wgetrc"
