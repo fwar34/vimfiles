@@ -8,7 +8,7 @@ If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 
 #要安装的包的字符串数组
 $packages_choco="fzf","svn","wget","curl","ag","diffutils","universal-ctags","7zip","python3"
-$packages_scoop="fd","ripgrep","figlet","findutils"
+$packages_scoop="fd","ripgrep","figlet","findutils","less","bat"
 
 function require_pkg_choco($pkg)
 {
