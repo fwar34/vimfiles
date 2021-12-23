@@ -1,6 +1,6 @@
 //https://gist.github.com/redguardtoo/b12ddae3b8010a276e9b, 我有修改，注释了--langdef=Rust --langdef=Rust,要不生成tags文件，ctags一直返回错误 
 //报错也可以参考https://github.com/universal-ctags/ctags/issues/2127,只不过我没有试
-// --langdef=typescript
+// 
 // --langmap=typescript:.ts.tsx
 // Remove above two lines. Instead, put --map-TypeScript=+.tsx.
 
@@ -751,7 +751,7 @@
 
 --langmap=java:+.aj
 
-// --langdef=markdown
+// 
 --langmap=markdown:.md
 --regex-markdown=/^(#[^#].*)/\1/1,level1/
 --regex-markdown=/^(##[^#].*)/\1/2,level2/
@@ -760,7 +760,7 @@
 --regex-markdown=/^(==[^=].*)/\1/2,level2/
 --regex-markdown=/^(===[^=].{0,19})/\1/3,level3/
 
-// --langdef=Rust
+// 
 --langmap=Rust:.rs
 --regex-Rust=/^[ \t]*(#\[[^\]]\][ \t]*)*(pub[ \t]+)?(extern[ \t]+)?("[^"]+"[ \t]+)?(unsafe[ \t]+)?fn[ \t]+([a-zA-Z0-9_]+)/\6/f,functions,function definitions/
 --regex-Rust=/^[ \t]*(pub[ \t]+)?type[ \t]+([a-zA-Z0-9_]+)/\2/T,types,type definitions/
@@ -914,7 +914,7 @@
 --regex-less=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
 --regex-less=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/
 
---langdef=css
+
 --langmap=css:.css
 --regex-css=/^[ \t]*(\$[A-Za-z0-9_-]+)[ \t]*:[ \t]*.*;[ \t]*$/\1/c,class/
 --regex-css=/^,?[ \t]*#?[ \t]*\.([A-Za-z_][A-Za-z0-9_:"' \t\-]+)[ \t]*[\{,]/\1/c,class/
@@ -922,7 +922,7 @@
 --regex-css=/^[ \t]*@define-mixin[ \t]+([^ ]+)/\1/f,function/
 --regex-css=/^,?[ \t]*([A-Za-z_][A-Za-z0-9_:()="' \t\-]+)[ \t]*[\{,]/\1/t,tags/
 
---langdef=scss
+
 --langmap=scss:.scss.sass
 --regex-scss=/^[ \t]*@mixin ([A-Za-z0-9_-]+)/\1/m,mixin,mixins/
 --regex-scss=/^[ \t]*\$([A-Za-z0-9_-]+)/\1/m,variable,variables/
@@ -946,7 +946,7 @@
 --regex-ini=/^[ \t]*\[(.*)\]/\1/b,block/
 --regex-ini=/^[ \t]*([=]+)=(.*)/\1/k,key/
 
---langdef=Go
+
 --langmap=Go:.go
 --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
 --regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
