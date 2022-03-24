@@ -1,4 +1,6 @@
 " http://vrapper.sourceforge.net/documentation/?topic=commands
+" Vrapper defines operations for some Ctrl keys. However, in all cases, if you have an Eclipse shortcut bound to that Ctrl key it will always perform the Eclipse operation. 
+" You have to unbind all instances of that Ctrl key from Eclipse for any of the following Vrapper bindings to work.
 " vrapper configuration file
 let mapleader=';'
 
