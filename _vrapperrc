@@ -1,3 +1,4 @@
+" http://vrapper.sourceforge.net/documentation/?topic=commands
 " vrapper configuration file
 let mapleader=';'
 
