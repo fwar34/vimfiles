@@ -6,6 +6,7 @@ set surround  		   "Commands: ys, cs, ds, S
 set multiple-cursors   "Commands: <A-n>, <A-x>, <A-p>, g<A-n>
 set commentary         "Commands: gcc, gc + motion, v_gc   
 set argtextobj         "Additional text objects: aa, ia             
+set sneak
 						  
 set hlsearch                                                                                                                   
 set incsearch                                                                                                                  
