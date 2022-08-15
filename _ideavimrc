@@ -1,4 +1,4 @@
- leader                                                                                                                       
+" leader                                                                                                                       
 let mapleader=';'                                                                                                              
 
 " plugins
