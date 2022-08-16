@@ -6,6 +6,7 @@ set surround  		   "Commands: ys, cs, ds, S
 set multiple-cursors   "Commands: <A-n>, <A-x>, <A-p>, g<A-n>
 set commentary         "Commands: gcc, gc + motion, v_gc
 set argtextobj         "Additional text objects: aa, ia
+set easymotion
 
 set sneak
 " set which-key
@@ -132,7 +133,8 @@ nnoremap <Leader>ic :action InspectCode<CR>
 
 nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
 
-nnoremap <Leader>oi :action OptimizeImports<CR>
+" nnoremap <Leader>oi :action OptimizeImports<CR>
+map <Leader>oi <Action>(OptimizeImports)
 
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
 
@@ -144,7 +146,7 @@ nnoremap <Leader>rf :action RenameFile<CR>
 nnoremap <Leader>rc :action Run<CR>
 nnoremap <Leader>rr :action Rerun<CR>
 
-nnoremap <Leader>se :action SearchEverywhere<CR>
+nnoremap <Leader>fa :action SearchEverywhere<CR>
 nnoremap <Leader>su :action ShowUsages<CR>
 nnoremap <Leader>tc :action CloseActiveTab<CR>
 nnoremap <Leader>si :action StepInto<CR>
@@ -158,6 +160,8 @@ nnoremap <Leader>la :actionlist<CR>
 "Ctrl+Shift+F12
 nnoremap <Leader>ww :action HideAllWindows<CR>
 set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
 sethandler <C-A> n:ide i:vim
