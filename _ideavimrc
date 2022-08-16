@@ -165,3 +165,4 @@ set idearefactormode=keep
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
 sethandler <C-A> n:ide i:vim
+sethandler <C-E> n:ide i:vim
