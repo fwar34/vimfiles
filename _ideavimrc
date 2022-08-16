@@ -1,24 +1,28 @@
-" leader                                                                                                                       
+" leader
 let mapleader=';'                                                                                                              
 
 " plugins
 set surround  		   "Commands: ys, cs, ds, S
 set multiple-cursors   "Commands: <A-n>, <A-x>, <A-p>, g<A-n>
 set commentary         "Commands: gcc, gc + motion, v_gc   
-set argtextobj         "Additional text objects: aa, ia             
+set argtextobj         "Additional text objects: aa, ia
+
 set sneak
+" set which-key
+" set notimeout
 						  
 set hlsearch                                                                                                                   
-set incsearch                                                                                                                  
-set ignorecase                                                                                                                 
-set smartcase                                                                                                                  
+set incsearch
+set ignorecase
+set smartcase
 set showmode                                                                                                                   
 set number                                                                                                                     
 " set relativenumber                                                                                                           
-set scrolloff=3                                                                                                                
-set history=100000                                                                                                             
+set scrolloff=4
+set history=100001
 set clipboard=unnamed                                                                                                          
-                                                                                                                               
+set clipboard+=ideaput
+
 " clear the highlighted search result                                                                                          
 nnoremap <Leader>xx :nohlsearch<CR>                                                                                            
 nnoremap <Leader>zz :w<CR>                                                                                                     
@@ -26,8 +30,8 @@ nnoremap <Leader>zz :w<CR>
 " project search                                                                                                               
 nnoremap <Leader>ff :action GotoFile<CR>
                                                                                                                                
-nnoremap <Leader>fm :action ReformatCode<CR>                                                                                   
-nnoremap fu :action FindUsages<CR>                                                                                             
+nnoremap <Leader>fm :action ReformatCode<CR>
+nnoremap fu :action FindUsages<CR>
 nnoremap <Leader>fu :action FindUsages<CR>                                                                                     
 nnoremap ge G                                                                                                                  
                                                                                                                                
@@ -35,9 +39,9 @@ nnoremap ge G
 nnoremap <Leader>qq :q<CR>                                                                                                     
 nnoremap <Leader>Q  :qa!<CR> 
                                                                                                                                
-nnoremap <Space>qq <M-F4>                                                                                                      
+nnoremap <Space>qq <M-F5>
                                                                                                                                
-inoremap <C-U> <Esc>mgviwU`gli                                                                                                 
+inoremap <C-U> <Esc>mgviwU`gli
 inoremap <C-u> <Esc>mgviwu`gli
 nnoremap <C-U> mgviwU`g
 nnoremap <C-u> mgviwu`g                                                                                                        
@@ -55,8 +59,8 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>                                                                                                          
 inoremap <C-k> <Up>                                                                                                            
 inoremap <C-l> <Right>                                                                                                         
-inoremap <C-a> <Esc>I                                                                                                          
-inoremap <C-e> <End>                                                                                                           
+inoremap <C-a> <Esc>I
+inoremap <C-e> <Esc>A
 inoremap <C-d> <Delete>                                                                                                        
                                                                                                                                
 " Quit insert mode                                                                                                             
@@ -65,18 +69,20 @@ vnoremap ;g <Esc>
 " Quit visual mode                                                                                                             
 vnoremap v <Esc>                                                                                                               
                                                                                                                                
-nnoremap H ^
-nnoremap <Leader>a ^                                                                                                           
-nnoremap L $                                                                                                                   
-nnoremap <Leader>e $                                                                                                           
+" Tab operation
+nnoremap H gT
+nnoremap L gt
+
+nnoremap <Leader>a ^
+nnoremap <Leader>e $
                                                                                                                                
 " Redo                                                                                                                         
 nnoremap U <C-r>                                                                                                               
 " Yank to the end of line                                                                                                      
 nnoremap Y y$                                                                                                                  
-" quit ==> close current window                                                                                                
-"nnoremap <Leader>dw <C-W>w                                                                                                    
-                                                                                                                               
+" quit ==> close current window
+"nnoremap <Leader>dw <C-W>w
+
 nnoremap <Space><Space> :                                                                                                      
                                                                                                                                
 " Window operation                                                                                                             
@@ -86,13 +92,10 @@ nnoremap <Leader>dw <C-W>c
 nnoremap <Leader>wj <C-W>j                                                                                                     
 nnoremap <Leader>wk <C-W>k                                                                                                     
 nnoremap <Leader>wh <C-W>h                                                                                                     
-nnoremap <Leader>wl <C-W>l                                                                                                     
+nnoremap <Leader>wl <C-W>l
 nnoremap <Leader>ws <C-W>s
 nnoremap <Leader>wv <C-W>v
                                                                                                                                
-" Tab operation                                                                                                                
-nnoremap tn gt                                                                                                                 
-nnoremap tp gT
 
 " Code navigation
 nnoremap <C-o> :action Back<CR>
@@ -141,7 +144,7 @@ nnoremap <Leader>rc :action Run<CR>
 nnoremap <Leader>rr :action Rerun<CR>                                                                                          
                                                                                                                                
 nnoremap <Leader>se :action SearchEverywhere<CR>                                                                               
-nnoremap <Leader>su :action ShowUsages<CR>                                                                                     
+nnoremap <Leader>su :action ShowUsages<CR>
 nnoremap <Leader>tc :action CloseActiveTab<CR>                                                                                 
 nnoremap <Leader>si :action StepInto<CR>                                                                                       
                                                                                                                                
@@ -150,8 +153,10 @@ nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>                                                               
 vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>                                                                
 nnoremap <Leader>la :actionlist<CR>                                                                                            
-set clipboard+=ideaput
 
 "Ctrl+Shift+F12
 nnoremap <Leader>ww :action HideAllWindows<CR>
 set ideajoin
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+sethandler <C-A> n:ide i:vim
