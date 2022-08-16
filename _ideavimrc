@@ -30,6 +30,7 @@ nnoremap <Leader>zz :w<CR>
 
 " project search
 nnoremap <Leader>ff :action GotoFile<CR>
+map <Leader>rm <Action>(RecentFiles)
 
 nnoremap <Leader>fm :action ReformatCode<CR>
 nnoremap fu :action FindUsages<CR>
