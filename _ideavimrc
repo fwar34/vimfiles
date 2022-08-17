@@ -72,20 +72,20 @@ vnoremap ;g <Esc>
 vnoremap v <Esc>
 
 " Tab operation
-nnoremap H gT
-nnoremap L gt
+map H gT
+map L gt
 
-nnoremap <Leader>a ^
-nnoremap <Leader>e $
+map <Leader>a ^
+map <Leader>e $
 
 " Redo
-nnoremap U <C-r>
+map U <C-r>
 " Yank to the end of line
 nnoremap Y y$
 " quit ==> close current window
 "nnoremap <Leader>dw <C-W>w
 
-nnoremap <Space><Space> :
+map <Space><Space> :
 
 " Window operation
 nnoremap <Leader><TAB> <C-W>w
@@ -144,8 +144,8 @@ map <Leader>rC <Action>(ChooseRunConfiguration)
 map <Leader>re <Action>(RenameElement)
 map <Leader>rf <Action>(RenameFile)
 
-nnoremap <Leader>rc :action Run<CR>
-nnoremap <Leader>rr :action Rerun<CR>
+map <Leader>rc <Action>(Run)
+map <Leader>rr <Action>(Rerun)
 
 map <Leader>fa <Action>(SearchEverywhere)
 map <Leader>su <Action>(ShowUsages)
