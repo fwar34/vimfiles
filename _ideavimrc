@@ -26,15 +26,15 @@ set clipboard+=ideaput
 
 " clear the highlighted search result
 nnoremap <Leader>xx :nohlsearch<CR>
-nnoremap <Leader>zz :w<CR>
+map <Leader>zz :w<CR>
 
 " project search
-nnoremap <Leader>ff :action GotoFile<CR>
+map <Leader>ff <Action>(GotoFile)
 map <Leader>rm <Action>(RecentFiles)
 
-nnoremap <Leader>fm :action ReformatCode<CR>
+map <Leader>fm <Action>(ReformatCode)
 nnoremap fu :action FindUsages<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
+map <Leader>fu <Action>(FindUsages)
 nnoremap ge G
 
 " Quit normal mode
@@ -51,8 +51,8 @@ nnoremap <C-u> mgviwu`g
 nnoremap <Leader>mm %
 
 "close file
-nnoremap <Leader>co :action CloseAllEditorsButActive<CR>
-nnoremap <Leader>do :action CloseAllWindowButCurrent<CR>
+map <Leader>co <Action>(CloseAllEditorsButActive)
+map <Leader>do <Action>(loseAllWindowButCurrent)
 
 " Insert mode shortcut
 inoremap <C-b> <Left>
@@ -100,66 +100,64 @@ nnoremap <Leader>wv <C-W>v
 
 
 " Code navigation
-nnoremap <C-o> :action Back<CR>
-nnoremap <C-i> :action Forward<CR>
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
 
 " ==================================================
 " Show all the provided actions via `:actionlist`
 " ==================================================
 
 " built in search looks better
-nnoremap / :action Find<CR>
+map / <Action>(Find)
 " but preserve ideavim search
 nnoremap <Leader>/ /
 
-nnoremap <Leader>ci :action CommentByLineComment<CR>
+map <Leader>ci <Action>(CommentByLineComment)
 
-nnoremap <Leader>bb <C-6>
-nnoremap <Leader>bk :action ToggleLineBreakpoint<CR>
-nnoremap <Leader>br :action ViewBreakpoints<CR>
+map <Leader>bb <C-6>
+map <Leader>bk <Action>(ToggleLineBreakpoint)
+map <Leader>br <Action>(ViewBreakpoints)
 
-nnoremap <Leader>cv :action ChangeView<CR>
-nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+map <Leader>cv <Action>(ChangeView)
+map <Leader>cd <Action>(ChooseDebugConfiguration)
 
-nnoremap <Leader>ga :action GotoAction<CR>
-nnoremap <Leader>gc :action GotoClass<CR>
-nnoremap <Leader>gd :action GotoDeclaration<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-nnoremap <Leader>gt :action GotoTest<CR>
+map <Leader>ga <Action>(GotoAction)
+map <Leader>gc <Action>(GotoClass)
+map <Leader>gd <Action>(GotoDeclaration)
+map <Leader>gi <Action>(GotoImplementation)
+map <Leader>gs <Action>(GotoSymbol)
+map <Leader>gt <Action>(GotoTest)
 
-nnoremap <Leader>fd :action ShowFilePath<CR>
+map <Leader>fd <Action>(ShowFilePath)
 
-nnoremap <Leader>ic :action InspectCode<CR>
+map <Leader>ic <Action>(InspectCode)
 
 nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
 
 " nnoremap <Leader>oi :action OptimizeImports<CR>
 map <Leader>oi <Action>(OptimizeImports)
 
-nnoremap <Leader>pm :action ShowPopupMenu<CR>
+map <Leader>pm <Action>(ShowPopupMenu)
 
 "nnoremap <Leader>rc :action RunToCursor<CR>
-nnoremap <Leader>rC :action ChooseRunConfiguration<CR>
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>rf :action RenameFile<CR>
+map <Leader>rC <Action>(ChooseRunConfiguration)
+map <Leader>re <Action>(RenameElement)
+map <Leader>rf <Action>(RenameFile)
 
 nnoremap <Leader>rc :action Run<CR>
 nnoremap <Leader>rr :action Rerun<CR>
 
-nnoremap <Leader>fa :action SearchEverywhere<CR>
-nnoremap <Leader>su :action ShowUsages<CR>
-nnoremap <Leader>tc :action CloseActiveTab<CR>
-nnoremap <Leader>si :action StepInto<CR>
-
-nnoremap <Leader>tb :action ToggleLineBreakpoint<CR>
+map <Leader>fa <Action>(SearchEverywhere)
+map <Leader>su <Action>(ShowUsages)
+map <Leader>tc <Action>(CloseActiveTab)
+map <Leader>si <Action>(StepInto)
 
 nnoremap <Leader>tm Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tm y<CR>:action ActivateTerminalToolWindow<CR>
-nnoremap <Leader>la :actionlist<CR>
+map <Leader>la :actionlist<CR>
 
 "Ctrl+Shift+F12
-nnoremap <Leader>ww :action HideAllWindows<CR>
+map <Leader>ww <Action>(HideAllWindows)
 set ideajoin
 set ideastatusicon=gray
 set idearefactormode=keep
