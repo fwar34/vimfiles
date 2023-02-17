@@ -4,3 +4,5 @@ function gl {git pull}
 function gp {git push}
 function gcmsg {git commit -m}
 
+Invoke-Expression (& { (lua $HOME\z.lua\z.lua --init powershell) -join "`n" })
+
