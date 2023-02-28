@@ -1,5 +1,5 @@
-//https://gist.github.com/redguardtoo/b12ddae3b8010a276e9b, æˆ‘æœ‰ä¿®æ”¹ï¼Œæ³¨é‡Šäº†--langdef=Rust --langdef=Rust,è¦ä¸ç”Ÿæˆtagsæ–‡ä»¶ï¼Œctagsä¸€ç›´è¿”å›é”™è¯¯ 
-//æŠ¥é”™ä¹Ÿå¯ä»¥å‚è€ƒhttps://github.com/universal-ctags/ctags/issues/2127,åªä¸è¿‡æˆ‘æ²¡æœ‰è¯•
+//https://gist.github.com/redguardtoo/b12ddae3b8010a276e9b, ÎÒÓĞĞŞ¸Ä£¬×¢ÊÍÁË--langdef=Rust --langdef=Rust,Òª²»Éú³ÉtagsÎÄ¼ş£¬ctagsÒ»Ö±·µ»Ø´íÎó 
+//±¨´íÒ²¿ÉÒÔ²Î¿¼https://github.com/universal-ctags/ctags/issues/2127,Ö»²»¹ıÎÒÃ»ÓĞÊÔ
 // 
 // --langmap=typescript:.ts.tsx
 // Remove above two lines. Instead, put --map-TypeScript=+.tsx.
