@@ -1,4 +1,5 @@
 " http://vrapper.sourceforge.net/documentation/?topic=commands
+" https://vrapper.sourceforge.net/documentation/?topic=configuration
 " Vrapper defines operations for some Ctrl keys. However, in all cases, if you have an Eclipse shortcut bound to that Ctrl key it will always perform the Eclipse operation. 
 " You have to unbind all instances of that Ctrl key from Eclipse for any of the following Vrapper bindings to work.
 
@@ -8,6 +9,7 @@ let mapleader=';'
 " set smartident
 set autoindent
 set nospell
+set contentassistmode
 
 inoremap <leader>g <ESC>
 vnoremap <leader>g <Esc>
@@ -21,7 +23,30 @@ nnoremap <leader>mm %
 nnoremap <leader>bs :ls<CR>
 nnoremap <leader>xx :set nohlsearch<CR>
 nnoremap <SPACE><SPACE> :
-inoremap <C-l> <RIGHT>
-inoremap <C-h> <LEFT>
+eclipseaction openfile org.eclipse.ui.window.openEditorDropDown
+nnoremap <leader>ff :openfile<CR>
+inoremap <C-f> <RIGHT>
+inoremap <C-b> <LEFT>
+inoremap <C-a> <ESC>I
+inoremap <C-e> <Esc>A
 nnoremap u :undo<CR>
-nnoremap <C-r> :redo<CR>
+" nnoremap <C-r> :redo<CR>
+
+nmap s <Plug>(sneak_s)
+nmap S <Plug>(sneak_S)
+nmap ; <Plug>(sneak-next)
+nmap , <Plug>(sneak-prev)
+vmap s <Plug>(sneak_s)
+vmap Z <Plug>(sneak_S)
+vmap ; <Plug>(sneak-next)
+vmap , <Plug>(sneak-prev)
+nmap f <Plug>(sneak_f)
+nmap F <Plug>(sneak_F)
+nmap t <Plug>(sneak_t)
+nmap T <Plug>(sneak_T)
+vmap f <Plug>(sneak_f)
+vmap F <Plug>(sneak_F)
+vmap t <Plug>(sneak_t)
+vmap T <Plug>(sneak_T)
+omap z <Plug>(sneak_s)
+omap Z <Plug>(sneak_S)
